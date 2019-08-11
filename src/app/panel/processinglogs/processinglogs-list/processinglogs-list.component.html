@@ -1,0 +1,112 @@
+<div class="element-actions">
+  <div class="btn-group mb-2">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" style="min-width: 140px"
+      data-toggle="dropdown" id="dropdownMenu" type="button">
+      Export
+    </button>
+
+    <div aria-labelledby="dropdownMenu" class="dropdown-menu">
+      <button class="dropdown-item" (click)="export()">CSV</button>
+      <button class="dropdown-item" (click)="export()">XLS</button>
+    </div>
+  </div>
+</div>
+
+<h5 class="element-header">Processing Logs</h5>
+
+<div class="element-box">
+  <div class="search-wrapper">
+    <app-accordion>
+      <div accordion-el="title">
+        <i class="fa fa-search"></i>
+        Search
+      </div>
+      <div accordion-el="content">
+        <form [formGroup]="formGroup" (ngSubmit)="search()" class="row">
+          <div class="col-sm-2">
+            <input type="text" placeholder="User ID" class="form-control" formControlName="id">
+          </div>
+
+          <div class="col-sm-2">
+            <input type="text" placeholder="User name" class="form-control" formControlName="name">
+          </div>
+
+          <div class="col-sm-2">
+            <input [owlDateTime]="dt1" placeholder="Date from" class="form-control" [owlDateTimeTrigger]="dt1"
+              formControlName="from">
+          </div>
+
+          <div class="col-sm-2">
+            <input [owlDateTime]="dt2" placeholder="Date to" class="form-control" [owlDateTimeTrigger]="dt2"
+              formControlName="to">
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-center justify-content-end">
+            <button class="btn btn-primary" type="submit">Filter</button>
+            <button class="btn btn-secondary" type="button" (click)="clear()">Reset</button>
+          </div>
+
+          <owl-date-time #dt1 [showSecondsTimer]="true"></owl-date-time>
+          <owl-date-time #dt2 [showSecondsTimer]="true"></owl-date-time>
+        </form>
+      </div>
+    </app-accordion>
+  </div>
+
+  <div class="table-responsive">
+    <div class="dataTables_wrapper container-fluid dt-bootstrap4">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="dataTables_paginate paging_simple_numbers">
+            <app-pagination [pagination]="pagination" (pageChange)="changePage($event)"></app-pagination>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-striped table-lightfont dataTable" role="grid">
+            <thead>
+              <tr role="row">
+                <th scope="col">#</th>
+                <th scope="col">Action</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Title</th>
+                <th scope="col">Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let processinglog of processinglogs; let ind = index;" role="row" [ngClass]="{odd: ind % 2 === 0, even: ind % 2 !== 0}">
+                <td scope="row">{{processinglog.id}}</td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      actions
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" [routerLink]="['/panel/processinglogs/edit', processinglog.id]">Edit</a>
+                      <a class="dropdown-item" [routerLink]="['/panel/processinglogs', processinglog.id]">View</a>
+                    </div>
+                  </div>
+                </td>
+                <td>{{processinglog.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+                <td>{{processinglog.unique_id}}</td>
+                <td>{{processinglog.title}}</td>
+                <td>{{processinglog.level}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="dataTables_paginate paging_simple_numbers">
+            <app-pagination [pagination]="pagination" (pageChange)="changePage($event)"></app-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

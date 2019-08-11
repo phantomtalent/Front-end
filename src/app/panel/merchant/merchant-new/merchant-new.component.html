@@ -1,0 +1,129 @@
+<h5 class="element-header">New Merchant</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <legend><span>Merchant Configurations</span></legend>
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('login')">
+          <label>Login</label>
+          <input type="text" class="form-control" formControlName="login">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('login')">
+            {{controlValidateMessage('login')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('pwd')">
+          <label>Password</label>
+          <input type="text" class="form-control" formControlName="pwd">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('pwd')">
+            {{controlValidateMessage('pwd')}}
+          </div>
+        </div>
+
+        <legend><span>Merchant Address</span></legend>
+
+        <div class="form-group" [ngClass]="errorClasses('street_address')">
+          <label>Street Address</label>
+          <input type="text" class="form-control" formControlName="street_address">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('street_address')">
+            {{controlValidateMessage('street_address')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('zip_code')">
+          <label>Zip Code</label>
+          <input type="text" class="form-control" formControlName="zip_code">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('zip_code')">
+            {{controlValidateMessage('zip_code')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('address_state')">
+          <label>State</label>
+          <input type="text" class="form-control" formControlName="address_state">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('address_state')">
+            {{controlValidateMessage('address_state')}}
+          </div>
+        </div>
+
+        <legend><span>Network Access</span></legend>
+
+        <div class="form-group" [ngClass]="errorClasses('allowed_ip_address')">
+          <label>Allowed IP address</label>
+          <ng-select [items]="[]" *ngIf = "isValidateIp() || !isAdded" class = "custom"
+                formControlName = "allowed_ip_address"
+                [addTag]="true"
+                [multiple]="true"
+                [selectOnTab]="true"
+                (change) = "onChange($event)"
+                [isOpen]="false">
+            </ng-select>
+            <ng-select [items]="[]" *ngIf = "isAdded && !isValidateIp()" class = "custom has-error"
+              formControlName = "allowed_ip_address"
+              [addTag]="true"
+              [multiple]="true"
+              [selectOnTab]="true"
+              (change) = "onChange($event)"
+              [isOpen]="false">
+            </ng-select>
+            <div class="help-block form-text with-errors form-control-feedback"
+                  *ngIf="isAdded && !isIpValid">
+                  Allowed ip addresses has invalid address
+              <!-- {{controlValidateMessage('allowed_ip_address')}} -->
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('allowed_domains')">
+          <label>Allowed Domains</label>
+          <input type="text" class="form-control" formControlName="allowed_domains">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('allowed_domains')">
+            {{controlValidateMessage('allowed_domains')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('state_raw')">
+          <label>State</label>
+          <select class="custom-select form-control" formControlName="state_raw">
+            <option value="">Please Select...</option>
+            <option [value]="stateType" *ngFor="let stateType of stateTypes">{{ MerchantStateType2LabelMapping[stateType] }}</option>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('state_raw')">
+              {{controlValidateMessage('state_raw')}}
+            </div>
+          </select>
+        </div>
+
+        <legend><span>Supported Features & Services</span></legend>
+
+        <div class="form-group" [ngClass]="errorClasses('supports_api')">
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="supports_api" class="form-check-input" formControlName="supports_api">
+            <label class="form-check-label" for="supports_api">Supports API</label>
+          </div>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('supports_api')">
+            {{controlValidateMessage('supports_api')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create Merchant</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="loginValueExists" class="alert alert-danger">Merchant with current name already exists!</div>
+          <div *ngIf="emailValueExists" class="alert alert-danger">Email already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

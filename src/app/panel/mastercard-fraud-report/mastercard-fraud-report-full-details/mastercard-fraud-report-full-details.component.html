@@ -1,0 +1,196 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+    <tbody>
+        <tr class="even">
+            <td>ID</td>
+            <td>{{ mastercardfraudreport?.id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Issuer</td>
+          <td>{{ mastercardfraudreport?.issuer }}</td>
+        </tr>
+        <tr class="even">
+          <td>Acquirer</td>
+          <td>{{ mastercardfraudreport?.acquirer }}</td>
+        </tr>
+        <tr class="even">
+          <td>ARN</td>
+          <td>{{ mastercardfraudreport?.acquirer_reference }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card numbertd>
+          <td>{{ mastercardfraudreport?.card_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Received date</td>
+          <td>{{ mastercardfraudreport?.received_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Customer change date</td>
+          <td>{{ mastercardfraudreport?.customer_change_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Customer posted date</td>
+          <td>{{ mastercardfraudreport?.customer_posted_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Transaction date</td>
+          <td>{{ mastercardfraudreport?.transaction_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>USD amount</td>
+          <td>{{ mastercardfraudreport?.amount_in_usd }}</td>
+        </tr>
+        <tr class="even">
+          <td>Transaction time</td>
+          <td>{{ mastercardfraudreport?.transaction_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Amount</td>
+          <td>{{ mastercardfraudreport?.amount }}</td>
+        </tr>
+        <tr class="even">
+          <td>Currency</td>
+          <td>{{ mastercardfraudreport?.currency }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card type</td>
+          <td>{{ mastercardfraudreport?.card_type }}</td>
+        </tr>
+        <tr class="even">
+          <td>Descriptor</td>
+          <td>{{ mastercardfraudreport?.descriptor }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant number</td>
+          <td>{{ mastercardfraudreport?.merchant_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant city</td>
+          <td>{{ mastercardfraudreport?.merchant_city }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant state</td>
+          <td>{{ mastercardfraudreport?.merchant_state }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant country</td>
+          <td>{{ mastercardfraudreport?.merchant_country }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant postal code</td>
+          <td>{{ mastercardfraudreport?.merchant_postal_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant category code</td>
+          <td>{{ mastercardfraudreport?.merchant_category_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal attendance indicator</td>
+          <td>{{ mastercardfraudreport?.terminal_attendance_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder presence indicator</td>
+          <td>{{ mastercardfraudreport?.cardholder_presence_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>CAT level</td>
+          <td>{{ mastercardfraudreport?.cat_level }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal capability indicator</td>
+          <td>{{ mastercardfraudreport?.terminal_capability_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Electronic commerce indicator</td>
+          <td>{{ mastercardfraudreport?.electronic_commerce_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>POS Entry Mode</td>
+          <td>{{ mastercardfraudreport?.pos_entry_mode }}</td>
+        </tr>
+        <tr class="even">
+          <td>Industry Code</td>
+          <td>{{ mastercardfraudreport?.industry_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal ID</td>
+          <td>{{ mastercardfraudreport?.terminal_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Fraud type code</td>
+          <td>{{ mastercardfraudreport?.fraud_type_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Sub fraud type code</td>
+          <td>{{ mastercardfraudreport?.sub_fraud_type_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Chargeback indicator</td>
+          <td>{{ mastercardfraudreport?.chargeback_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cash back amount</td>
+          <td>{{ mastercardfraudreport?.cash_back_amount }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cash back currency code</td>
+          <td>{{ mastercardfraudreport?.cash_back_currency_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Account status indicator</td>
+          <td>{{ mastercardfraudreport?.account_status_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Issuing transit routing number</td>
+          <td>{{ mastercardfraudreport?.issuing_transit_routing_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Acquiring transit routing number</td>
+          <td>{{ mastercardfraudreport?.acquiring_transit_routing_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Serial ID Number</td>
+          <td>{{ mastercardfraudreport?.serial_id_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Trace ID Number</td>
+          <td>{{ mastercardfraudreport?.trace_id_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Account device type</td>
+          <td>{{ mastercardfraudreport?.account_device_type }}</td>
+        </tr>
+        <tr class="even">
+          <td>Secure Code</td>
+          <td>{{ mastercardfraudreport?.secure_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Avs response code</td>
+          <td>{{ mastercardfraudreport?.avs_response_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card present indicator</td>
+          <td>{{ mastercardfraudreport?.card_present_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal operating code</td>
+          <td>{{ mastercardfraudreport?.terminal_operating_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Processed transaction id</td>
+          <td>{{ mastercardfraudreport?.processed_transaction_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant ID</td>
+          <td>{{ mastercardfraudreport?.merchant_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Created at	</td>
+          <td>{{ mastercardfraudreport?.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Updated at</td>
+          <td>{{ mastercardfraudreport?.updated_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+    </tbody>
+</table>

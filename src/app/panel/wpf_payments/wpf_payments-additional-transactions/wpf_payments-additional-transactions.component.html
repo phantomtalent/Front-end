@@ -1,0 +1,60 @@
+<div class="table-responsive">
+	<div class="dataTables_wrapper">
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-striped table-lightfont dataTable" role="grid">
+					<thead>
+						<tr role="row">
+							<th scope="col">#</th>
+							<th scope="col">Action</th>
+							<th scope="col">Status</th>
+							<th scope="col">Created at</th>
+							<th scope="col">Merchant</th>
+							<th scope="col">Terminal</th>
+							<th scope="col">Error class</th>
+							<th scope="col">Merchant Transaction ID</th>
+							<th scope="col">Transaction ID</th>
+							<th scope="col">Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let wpfPayment of wpfPayments; let ind = index;" role="row"
+							[ngClass]="{odd: ind % 2 === 0, even: ind % 2 !== 0}">
+							<td scope="row">{{wpfPayment.id}}</td>
+							<td>
+								<div class="btn-group">
+									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										actions
+									</button>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" [routerLink]="['/panel/transactions/edit', wpfPayment.id]">Edit</a>
+										<a class="dropdown-item" [routerLink]="['/panel/transactions', wpfPayment.id]">View</a>
+									</div>
+								</div>
+							</td>
+              <td [ngSwitch]="wpfPayment.status">
+                <span *ngSwitchCase="'new'" class="badge badge-success">New</span>
+                <span *ngSwitchCase="'user'" class="badge badge-success">User</span>
+                <span *ngSwitchCase="'approved'" class="badge badge-success">Approved</span>
+                <span *ngSwitchCase="'pending-async'" class="badge badge-special">Pending async</span>
+                <span *ngSwitchCase="'declined'" class="badge badge-danger">Declined</span>
+                <span *ngSwitchCase="'error'" class="badge badge-danger">Error</span>
+                <span *ngSwitchCase="'voided'" class="badge badge-warning">Voided</span>
+                <span *ngSwitchCase="'refunded'" class="badge badge-info">Refunded</span>
+                <span *ngSwitchDefault class="badge">Unknown</span>
+              </td>
+							<td>{{wpfPayment.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+              <td class='date' [routerLink]="['/panel/merchants', wpfPayment?.merchant_id]">{{wpfPayment?.merchant_name}}</td>
+              <td class='date' [routerLink]="['/panel/terminals', wpfPayment?.terminal_id]">{{wpfPayment?.terminal_name}}</td>
+							<td>{{wpfPayment.error_class}}</td>
+							<td>{{wpfPayment.merchant_transaction_id}}</td>
+							<td>{{wpfPayment.unique_id}}</td>
+              <td>{{ wpfPayment.amount | currency:wpfPayment.currency:'' }} {{ wpfPayment.currency }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,299 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+    <tbody>
+        <tr class="even">
+          <td>ID</td>
+          <td>{{ processedTransaction?.id }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Merchant number</td>
+          <td>{{ processedTransaction?.merchant_number }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Batch number</td>
+          <td>{{ processedTransaction?.batch_number }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Batch date</td>
+          <td>{{ processedTransaction?.batch_date }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Transaction date</td>
+          <td>{{ processedTransaction?.transaction_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Post date</td>
+          <td>{{ processedTransaction?.post_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Item number</td>
+          <td>{{ processedTransaction?.item_number }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Transaction Type</td>
+          <td>{{ processedTransaction?.transaction_type }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Card number</td>
+          <td>{{ processedTransaction?.card_number }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Capture method</td>
+          <td>{{ processedTransaction?.capture_method }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Terminal ID</td>
+          <td>{{ processedTransaction?.terminal_id }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Terminal capability</td>
+          <td>{{ processedTransaction?.terminal_capability }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Auth code</td>
+          <td>{{ processedTransaction?.auth_code }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Currency</td>
+          <td>{{ processedTransaction?.currency }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Amount</td>
+          <td>{{ processedTransaction?.amount | currency:processedTransaction?.amount:''
+            }} {{
+            processedTransaction?.amount }}
+          </td>
+        </tr>
+        <tr class="odd">
+          <td>Status</td>
+          <td>{{ processedTransaction?.status }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Merchant transaction reference</td>
+          <td>{{ processedTransaction?.merchant_transaction_reference }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Account currency</td>
+          <td>{{ processedTransaction?.account_currency }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Account amount gross</td>
+          <td>{{ processedTransaction?.account_amount_gross }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Account total charges</td>
+          <td>{{ processedTransaction?.account_total_charges }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Account amount net</td>
+          <td>{{ processedTransaction?.account_amount_net }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Interchange category</td>
+          <td>{{ processedTransaction?.interchange_category }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Original slip number</td>
+          <td>{{ processedTransaction?.original_slip_number }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Descriptor</td>
+          <td>{{ processedTransaction?.descriptor }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Acquirer reference</td>
+          <td>{{ processedTransaction?.acquirer_reference }}</td>
+        </tr>
+        <tr class="odd">
+          <td>DCC indicator</td>
+          <td>{{ processedTransaction?.dcc_indicator }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Custom data</td>
+          <td>{{ processedTransaction?.custom_data }}</td>
+        </tr>
+        <tr class="odd">
+          <td>UCAF</td>
+          <td>{{ processedTransaction?.ucaf }}</td>
+        </tr>
+        <tr class="odd">
+          <td>RT flag</td>
+          <td>{{ processedTransaction?.rt_flag }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Card brand</td>
+          <td>{{ processedTransaction?.card_brand }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Merchant category code</td>
+          <td>{{ processedTransaction?.merchant_category_code }}</td>
+        </tr>
+        <tr class="odd">
+          <td>POS entry mode</td>
+          <td>{{ processedTransaction?.pos_entry_mode }}</td>
+        </tr>
+        <tr class="odd">
+          <td>BIN country</td>
+          <td>{{ processedTransaction?.bin_country }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Service type desc</td>
+          <td>{{ processedTransaction?.service_type_desc }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Merchant country</td>
+          <td>{{ processedTransaction?.merchant_country }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Base</td>
+          <td>{{ processedTransaction?.base }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Percentage</td>
+          <td>{{ processedTransaction?.percentage }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Minimum</td>
+          <td>{{ processedTransaction?.min }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Maximum</td>
+          <td>{{ processedTransaction?.max }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Record ID</td>
+          <td>{{ processedTransaction?.record_id }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Merchant city</td>
+          <td>{{ processedTransaction?.merchant_city }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Area of event</td>
+          <td>{{ processedTransaction?.area_of_event }}</td>
+        </tr>
+        <tr class="odd">
+          <td>e-Wallet type</td>
+          <td>{{ processedTransaction?.e_wallet_type }}</td>
+        </tr>
+        <tr class="odd">
+          <td>VME add auth method</td>
+          <td>{{ processedTransaction?.vme_add_auth_method }}</td>
+        </tr>
+        <tr class="odd">
+          <td>VME add auth reason code</td>
+          <td>{{ processedTransaction?.vme_add_auth_reason_code }}</td>
+        </tr>
+        <tr class="odd">
+          <td>PPOL program data</td>
+          <td>{{ processedTransaction?.ppol_program_data }}</td>
+        </tr>
+        <tr class="even">
+          <td>Payment transaction ID</td>
+          <td>{{ processedTransaction?.payment_transaction_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant ID</td>
+          <td>{{ processedTransaction?.merchant_id }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Import date</td>
+          <td>{{ processedTransaction?.created_at | date: 'yyyy-MM-dd HH:mm' }}</td>
+        </tr>
+        <tr class="odd">
+          <td>Updated at</td>
+          <td>{{ processedTransaction?.updated_at | date: 'yyyy-MM-dd HH:mm' }}</td>
+        </tr>
+        <tr class="even">
+          <td>Batch Slip Number</td>
+          <td>{{ processedTransaction?.batch_slip_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Deposit Slip Number</td>
+          <td>{{ processedTransaction?.deposit_slip_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Transaction Type Code</td>
+          <td>{{ processedTransaction?.transaction_type_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal Capability Code</td>
+          <td>{{ processedTransaction?.terminal_capability_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Transaction status code</td>
+          <td>{{ processedTransaction?.transaction_status_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Internal Merchant Account</td>
+          <td>{{ processedTransaction?.internal_merchant_account }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cross Rate</td>
+          <td>{{ processedTransaction?.cross_rate }}</td>
+        </tr>
+        <tr class="even">
+          <td>Client Number</td>
+          <td>{{ processedTransaction?.client_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Service ID Code</td>
+          <td>{{ processedTransaction?.service_id_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card Scheme Code</td>
+          <td>{{ processedTransaction?.card_scheme_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card Scheme</td>
+          <td>{{ processedTransaction?.card_scheme }}</td>
+        </tr>
+        <tr class="even">
+          <td>Capture Method Code</td>
+          <td>{{ processedTransaction?.capture_method_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Spend Qualified Indicator</td>
+          <td>{{ processedTransaction?.spend_qualified_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>VISA Transaction ID</td>
+          <td>{{ processedTransaction?.visa_transaction_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>MasterCard Banknet Reference</td>
+          <td>{{ processedTransaction?.mastercard_banknet_reference }}</td>
+        </tr>
+        <tr class="even">
+          <td>Service ID</td>
+          <td>{{ processedTransaction?.service_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>MasterCard retrieval reference</td>
+          <td>{{ processedTransaction?.retrieval_reference }}</td>
+        </tr>
+        <tr class="even">
+          <td>MasterCard banknet reference settlement date</td>
+          <td>{{ processedTransaction?.mastercard_banknet_reference_settle_date }}</td>
+        </tr>
+        <tr class="even">
+          <td>Fee base currency</td>
+          <td>{{ processedTransaction?.fee_currency }}</td>
+        </tr>
+        <tr class="even">
+          <td>Unique transaction identifier</td>
+          <td>{{ processedTransaction?.unique_tran_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant Street</td>
+          <td>{{ processedTransaction?.merchant_street }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant Post Code</td>
+          <td>{{ processedTransaction?.merchant_post_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant State Code</td>
+          <td>{{ processedTransaction?.merchant_state_code }}</td>
+        </tr>
+    </tbody>
+</table>

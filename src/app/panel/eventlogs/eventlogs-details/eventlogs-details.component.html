@@ -1,0 +1,14 @@
+<h5 class="element-header">Event Log #{{eventlogs?.id}}</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <p><b class="label">ID</b>{{eventlogs?.id}}</p>
+    <p><b class="label">Title</b>{{eventlogs?.title}}</p>
+    <p><b class="label">Message</b>{{eventlogs?.message}}</p>
+    <p><b class="label">Event Type</b>{{eventlogs?.event_type}}</p>
+    <p><b class="label">Entity Class</b>{{eventlogs?.entity_class}}</p>
+    <p><b class="label">Entity ID</b>{{eventlogs?.entity_id}}</p>
+    <p><b class="label">Created At</b>{{eventlogs?.created_at | date: 'yyyy-MM-dd HH:mm'}}</p>
+    <p><b class="label">Updated At</b>{{eventlogs?.updated_at | date: 'yyyy-MM-dd HH:mm'}}</p>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+<app-transaction-notes-details-table *ngFor="let note of notes" [note]="note" (delete)="delete.emit($event)" (review)="review.emit($event)"></app-transaction-notes-details-table>

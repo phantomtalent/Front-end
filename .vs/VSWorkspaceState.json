@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\panel",
+    "\\src\\app\\panel\\processed_transaction\\processed-transaction-details",
+    "\\src\\app\\panel\\transaction",
+    "\\src\\app\\panel\\transaction\\additional-transactions",
+    "\\src\\app\\panel\\transaction\\transaction-details",
+    "\\src\\app\\panel\\transaction\\transaction-list"
+  ],
+  "SelectedNode": "\\src\\app\\panel\\transaction\\additional-transactions\\additional-transactions.component.html",
+  "PreviewInSolutionExplorer": false
+}

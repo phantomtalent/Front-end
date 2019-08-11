@@ -1,0 +1,159 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+  <tbody>
+  <tr class="even">
+    <td>ID</td>
+    <td>{{ retrievalrequest?.id }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Merchant number</td>
+    <td>{{ retrievalrequest?.merchant_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Post date</td>
+    <td>{{ retrievalrequest?.post_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Item type</td>
+    <td>{{ retrievalrequest?.item_type }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Reason code</td>
+    <td>{{ retrievalrequest?.rc_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>Reason description</td>
+    <td>{{ retrievalrequest?.rc_description }}</td>
+  </tr>
+  <tr class="even">
+    <td>Acquirer reference</td>
+    <td>{{ retrievalrequest?.acquirer_reference }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Issuer number</td>
+    <td>{{ retrievalrequest?.issuer_number }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Item slip number</td>
+    <td>{{ retrievalrequest?.item_slip_number }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Card scheme</td>
+    <td>{{ retrievalrequest?.card_scheme }}</td>
+  </tr>
+  <tr class="even">
+    <td>Fulfillment date</td>
+    <td>{{ retrievalrequest?.fulfillment_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Description</td>
+    <td>{{ retrievalrequest?.description }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original post date</td>
+    <td>{{ retrievalrequest?.original_post_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction date</td>
+    <td>{{ retrievalrequest?.original_transaction_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction currency</td>
+    <td>{{ retrievalrequest?.original_transaction_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction amount</td>
+    <td>{{ retrievalrequest?.original_transaction_amount | currency:retrievalrequest?.original_transaction_currency:''
+      }} {{
+      retrievalrequest?.original_transaction_currency }}
+    </td>
+  </tr>
+  <tr class="even">
+    <td>Merchant settlement currency</td>
+    <td>{{ retrievalrequest?.merchant_settlement_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant settlement amount</td>
+    <td>{{ retrievalrequest?.merchant_settlement_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Network settlement currency</td>
+    <td>{{ retrievalrequest?.network_settlement_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Network settlement amount</td>
+    <td>{{ retrievalrequest?.network_settlement_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Card number</td>
+    <td>{{ retrievalrequest?.card_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original type</td>
+    <td>{{ retrievalrequest?.original_type }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original slip</td>
+    <td>{{ retrievalrequest?.original_slip }}</td>
+  </tr>
+  <tr class="even">
+    <td>Auth Code</td>
+    <td>{{ retrievalrequest?.auth_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original batch number</td>
+    <td>{{ retrievalrequest?.original_batch_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Rental agreement number</td>
+    <td>{{ retrievalrequest?.rental_agreement_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Retrieval request ID</td>
+    <td>{{ retrievalrequest?.retrieval_request_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback reference ID</td>
+    <td>{{ retrievalrequest?.chargeback_reference_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Due date</td>
+    <td>{{ retrievalrequest?.due_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Central processing date</td>
+    <td>{{ retrievalrequest?.central_processing_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Work by date</td>
+    <td>{{ retrievalrequest?.work_by_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Processed Transaction ID</td>
+    <td>{{ retrievalrequest?.processed_transaction_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant ID</td>
+    <td>{{ retrievalrequest?.merchant_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Created at</td>
+    <td>{{ retrievalrequest?.created_at | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Updated at</td>
+    <td>{{ retrievalrequest?.updated_at }}</td>
+  </tr>
+  <tr class="even">
+    <td>Case ID</td>
+    <td>{{ retrievalrequest?.case_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Client Number</td>
+    <td>{{ retrievalrequest?.client_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Unique transaction identifier</td>
+    <td>{{ retrievalrequest?.unique_tran_id }}</td>
+  </tr>
+  </tbody>
+</table>

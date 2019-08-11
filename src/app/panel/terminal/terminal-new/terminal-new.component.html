@@ -1,0 +1,224 @@
+<h5 class="element-header">New Terminal</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <legend><span>Terminal Configurations</span></legend>
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <div class="input-group-prepend">
+            <label>Name</label>
+          </div>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('reseller_id')">
+          <div class="input-group-prepend">
+            <label>Reseller</label>
+          </div>
+          <select class="custom-select form-control" formControlName="reseller_id">
+            <option value="">Please Select...</option>
+            <option [value]="reseller.id" *ngFor="let reseller of resellers">{{ reseller.name }}</option>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('reseller_id')">
+              {{controlValidateMessage('reseller_id')}}
+            </div>
+          </select>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('merchant_id')">
+          <div class="input-group-prepend">
+            <label>Merchant</label>
+          </div>
+            <app-select-search [fc]="formGroup.get('merchant_id')"
+                             [values]="merchantselectsdata"></app-select-search>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('merchant_id')">
+              {{controlValidateMessage('merchant_id')}}
+            </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('currency')">
+          <div class="input-group-prepend">
+            <label>Currency</label>
+          </div>
+            <app-select-search [fc]="formGroup.get('currency')"
+                               [values]="currencyselectsdata"></app-select-search>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('currency')">
+              {{controlValidateMessage('currency')}}
+            </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('traffic_shaper_class')">
+          <div class="input-group-prepend">
+            <label>Traffic Shaper Class</label>
+          </div>
+          <select class="custom-select form-control" formControlName="traffic_shaper_class">
+            <option value="">Please Select...</option>
+            <option [value]="shaper.shaper" *ngFor="let shaper of shapers">{{ shaper.shaper }}
+            </option>
+            <div class="help-block form-text with-errors form-control-feedback"
+              *ngIf="controlHasErrors('traffic_shaper_class')">
+              {{controlValidateMessage('traffic_shaper_class')}}
+            </div>
+          </select>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('mode')">
+          <div class="input-group-prepend">
+            <label>Mode</label>
+          </div>
+          <select class="custom-select form-control" formControlName="mode">
+            <option value="">Please Select...</option>
+            <option [value]="modeType" *ngFor="let modeType of modeTypes">{{ TerminalModeType2LabelMapping[modeType] }}
+            </option>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('mode')">
+              {{controlValidateMessage('mode')}}
+            </div>
+          </select>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('descriptor_type')">
+          <div class="input-group-prepend">
+            <label>Descriptor Type</label>
+          </div>
+          <select class="custom-select form-control" formControlName="descriptor_type">
+            <option value="">Please Select...</option>
+            <option [value]="descroptor_type.descriptor_type" *ngFor="let descroptor_type of descriptor_types">{{ descroptor_type.descriptor_type }}
+            </option>
+            <div class="help-block form-text with-errors form-control-feedback"
+              *ngIf="controlHasErrors('descriptor_type')">
+              {{controlValidateMessage('descriptor_type')}}
+            </div>
+          </select>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('expires_at')">
+          <div class="input-group-prepend">
+            <label>Expires at</label>
+          </div>
+          <!--<input type="text" class="form-control" formControlName="expires_at">-->
+          <app-date-picker placeholder="Expires at" formControlName="expires_at"></app-date-picker>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('expires_at')">
+            {{controlValidateMessage('expires_at')}}
+          </div>
+        </div>
+
+        <legend><span>Transaction types</span></legend>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_authorize').value, 'btn-light': !formGroup.get('tnx_authorize').value}"
+                (click)="selectTnx('tnx_authorize')">
+                <i class="fa fa-check mr-2" *ngIf="formGroup.get('tnx_authorize').value"></i>Authorize
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_authorize3d').value, 'btn-light': !formGroup.get('tnx_authorize3d').value}"
+                (click)="selectTnx('tnx_authorize3d')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_authorize3d').value"></i>Authorize3D</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_sale').value, 'btn-light': !formGroup.get('tnx_sale').value}"
+                (click)="selectTnx('tnx_sale')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_sale').value"></i>Sale</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_sale3d').value, 'btn-light': !formGroup.get('tnx_sale3d').value}"
+                (click)="selectTnx('tnx_sale3d')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_sale3d').value"></i>Sale3D</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_capture').value, 'btn-light': !formGroup.get('tnx_capture').value}"
+                (click)="selectTnx('tnx_capture')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_capture').value"></i>Capture</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_refund').value, 'btn-light': !formGroup.get('tnx_refund').value}"
+                (click)="selectTnx('tnx_refund')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_refund').value"></i>Refund</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_void').value, 'btn-light': !formGroup.get('tnx_void').value}"
+                (click)="selectTnx('tnx_void')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_void').value"></i>Void</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_init_recurring_sale').value, 'btn-light': !formGroup.get('tnx_init_recurring_sale').value}"
+                (click)="selectTnx('tnx_init_recurring_sale')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_init_recurring_sale').value"></i>Init Recurring Sale</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_recurring_sale').value, 'btn-light': !formGroup.get('tnx_recurring_sale').value}"
+                (click)="selectTnx('tnx_recurring_sale')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_recurring_sale').value"></i>Recurring Sale</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('tnx_account_verification').value, 'btn-light': !formGroup.get('tnx_account_verification').value}"
+                (click)="selectTnx('tnx_account_verification')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('tnx_account_verification').value"></i>Account Verification</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                [ngClass]="{'btn-success': formGroup.get('enabled').value, 'btn-light': !formGroup.get('enabled').value}"
+                (click)="selectTnx('enabled')"><i class="fa fa-check mr-2"
+                  *ngIf="formGroup.get('enabled').value"></i>Enabled</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row mt-4">
+          <button class="btn btn-primary" type="submit">Create Terminal</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="nameValueExists" class="alert alert-danger">Terminal with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.section-details {
+  -webkit-animation-name: fadeUp;
+  animation-name: fadeUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+
+  ::ng-deep .accordion-component {
+    background: white;
+  }
+}
+
+.notification-url-container {
+  .border-gray {
+    border-color: #e3e3e3;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}

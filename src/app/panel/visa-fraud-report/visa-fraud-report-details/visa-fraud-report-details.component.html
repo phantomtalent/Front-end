@@ -1,0 +1,30 @@
+<div class="transaction-details">
+
+    <h5 class="element-header" *ngIf="config.showHeader">Visa Fraud Report</h5>
+
+    <div class="section additional-transactions ">
+
+        <div class="element-box-header">
+            <div class="title">
+                <i class="fa fa-file"></i>
+                Visa Fraud Reports
+            </div>
+        </div>
+        <div class="details-wrapper">
+            <app-additional-visa-fraud-report [visafraudreports]="additionalVisafraudreport"></app-additional-visa-fraud-report>
+        </div>
+    </div>
+
+    <div class="section" *ngIf="config.showDetails">
+      <app-accordion>
+        <div accordion-el="title">
+          <i class="fa fa-th"></i>
+          Details
+        </div>
+        <div accordion-el="content">
+          <app-visa-fraud-report-full-details [visafraudreport]="visafraudreport"></app-visa-fraud-report-full-details>
+        </div>
+      </app-accordion>
+    </div>
+
+</div>

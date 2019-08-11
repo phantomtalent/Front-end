@@ -1,0 +1,87 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/terminals/edit', terminal.id]">
+    Edit Terminal
+  </a>
+</div>
+
+<h5 class="element-header">Terminal details</h5>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="element-box">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <div class="details-wrapper">
+            <p><b class="label">ID</b>{{terminal.id}}</p>
+            <p><b class="label">Name</b>{{terminal.name}}</p>
+            <p><b class="label">Reseller</b>{{terminal.name}}</p>
+            <p><b class="label">Merchant</b>{{terminal.name}}</p>
+            <p><b class="label">Currency</b>{{terminal.currency}}</p>
+            <p><b class="label">Traffic Shaper Class</b>{{terminal.traffic_shaper_class}}</p>
+            <p><b class="label">Mode</b>{{terminal.mode}}</p>
+            <p><b class="label">Descriptor Type</b>{{terminal.mode}}</p>
+            <p><b class="label">Expires at</b>{{terminal.expires_at}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="section-details">
+      <app-accordion-group>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Contract
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Contract', selector: 'name',  editable: false}" [list]="contractList">
+              </app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-envelope"></i>
+            Notification URLs
+          </div>
+          <div accordion-el="content">
+            <div *ngIf="notificationUrlsList.length" class="notification-url-container mt-1">
+              <div class="mt-2 container" *ngFor="let url of notificationUrlsList">
+                <div class="row bg bg-light">
+                  <div class="col-md-10 p-2 d-flex align-items-center border border-gray border-right-0">
+                    <div>{{url.url_type}}</div>
+                    <span
+                      class="badge ml-2" [ngClass]="{'badge-danger':!url.enabled,'badge-success':url.enabled}"
+                    >{{url.enabled ? 'Enabled' : 'Disabled'}}</span>
+                  </div>
+                </div>
+                <div class="row border p-2 border-gray border-top-0 overflow-auto">
+                  {{url.url}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-accordion>
+      </app-accordion-group>
+    </div>
+  </div>
+</div>
+
+<div class="transaction-details">
+  <div class="section additional-transactions">
+
+    <div class="element-box-header">
+      <div class="title">
+        <i class="fa fa-file"></i>
+        Decline Reasons last month until today
+      </div>
+    </div>
+    <div class="details-wrapper">
+      <app-terminal-risk-details [declinedReasonsList]="declinedReasonsList"></app-terminal-risk-details>
+    </div>
+  </div>
+</div>
+
+<app-terminal-risk-filter-list [terminalId]="terminal.id" [filters]="terminalRiskFilters"></app-terminal-risk-filter-list>

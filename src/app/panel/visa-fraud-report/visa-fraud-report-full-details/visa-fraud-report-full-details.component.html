@@ -1,0 +1,244 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+    <tbody>
+        <tr class="even">
+          <td>ID</td>
+          <td>{{ visafraudreport?.id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Acquirer's business ID</td>
+          <td>{{ visafraudreport?.acquirer_business_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Issuer generated authorization</td>
+          <td>{{ visafraudreport?.issuer_generated_authorization }}</td>
+        </tr>
+        <tr class="even">
+          <td>Market Segment Code</td>
+          <td>{{ visafraudreport?.market_segment_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Locator number</td>
+          <td>{{ visafraudreport?.locator_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Case number</td>
+          <td>{{ visafraudreport?.case_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Arrest Code</td>
+          <td>{{ visafraudreport?.arrest_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Mailed from postal code</td>
+          <td>{{ visafraudreport?.mailed_from_postal_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Transaction Identifier</td>
+          <td>{{ visafraudreport?.transaction_identifier }}</td>
+        </tr>
+        <tr class="even">
+          <td>Excluded transaction identifier reason</td>
+          <td>{{ visafraudreport?.excluded_transaction_identifier_reason }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card number</td>
+          <td>{{ visafraudreport?.card_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>ARN</td>
+          <td>{{ visafraudreport?.acquirer_reference }}</td>
+        </tr>
+        <tr class="even">
+          <td>Purchase date</td>
+          <td>{{ visafraudreport?.purchase_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Descriptor</td>
+          <td>{{ visafraudreport?.descriptor }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant city</td>
+          <td>{{ visafraudreport?.merchant_city }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant country code</td>
+          <td>{{ visafraudreport?.merchant_country_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant category code</td>
+          <td>{{ visafraudreport?.merchant_category_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant state</td>
+          <td>{{ visafraudreport?.merchant_state }}</td>
+        </tr>
+        <tr class="even">
+          <td>Amount</td>
+          <td>{{ visafraudreport?.amount }}</td>
+        </tr>
+        <tr class="even">
+          <td>Currency</td>
+          <td>{{ visafraudreport?.currency }}</td>
+        </tr>
+        <tr class="even">
+          <td>VIC Processing date</td>
+          <td>{{ visafraudreport?.vic_processing_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Notification code</td>
+          <td>{{ visafraudreport?.notification_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Account Sequence Number</td>
+          <td>{{ visafraudreport?.account_sequence_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Fraud type code</td>
+          <td>{{ visafraudreport?.fraud_type_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card expiration date</td>
+          <td>{{ visafraudreport?.card_expiration_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant postal code</td>
+          <td>{{ visafraudreport?.merchant_postal_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Fraud investigative code</td>
+          <td>{{ visafraudreport?.fraud_investigative_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Reimbursement attribute</td>
+          <td>{{ visafraudreport?.reimbursement_attribute }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder postal code</td>
+          <td>{{ visafraudreport?.cardholder_postal_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Social Security Number</td>
+          <td>{{ visafraudreport?.social_security_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder last name</td>
+          <td>{{ visafraudreport?.cardholder_last_name }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder first name</td>
+          <td>{{ visafraudreport?.cardholder_first_name }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder middle initial</td>
+          <td>{{ visafraudreport?.cardholder_middle_initial }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder address2</td>
+          <td>{{ visafraudreport?.cardholder_address2 }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder address1</td>
+          <td>{{ visafraudreport?.cardholder_address1 }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder city</td>
+          <td>{{ visafraudreport?.cardholder_city }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder state</td>
+          <td>{{ visafraudreport?.cardholder_state }}</td>
+        </tr>
+        <tr class="even">
+          <td>Telephone number</td>
+          <td>{{ visafraudreport?.telephone_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card valid from</td>
+          <td>{{ visafraudreport?.card_valid_from }}</td>
+        </tr>
+        <tr class="even">
+          <td>Multiple clearing sequence number</td>
+          <td>{{ visafraudreport?.multiple_clearing_sequence_number }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card acceptor id</td>
+          <td>{{ visafraudreport?.card_acceptor_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Terminal ID</td>
+          <td>{{ visafraudreport?.terminal_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Travel Agency ID</td>
+          <td>{{ visafraudreport?.travel_agency_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cashback indicator</td>
+          <td>{{ visafraudreport?.cashback_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Authorization Code</td>
+          <td>{{ visafraudreport?.authorization_code }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder ID merthod</td>
+          <td>{{ visafraudreport?.cardholder_id_method_used }}</td>
+        </tr>
+        <tr class="even">
+          <td>POS Entry mode</td>
+          <td>{{ visafraudreport?.pos_entry_method }}</td>
+        </tr>
+        <tr class="even">
+          <td>POS Terminal Capability</td>
+          <td>{{ visafraudreport?.pos_terminal_capability }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card capability</td>
+          <td>{{ visafraudreport?.card_capability }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cashback amount</td>
+          <td>{{ visafraudreport?.cashback_amount }}</td>
+        </tr>
+        <tr class="even">
+          <td>Cardholder activated terminal indicator</td>
+          <td>{{ visafraudreport?.carholder_activated_terminal_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Commerce indicator</td>
+          <td>{{ visafraudreport?.commerce_indicator }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card mailing date</td>
+          <td>{{ visafraudreport?.card_mailing_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Card mailing city</td>
+          <td>{{ visafraudreport?.card_mailing_city }}</td>
+        </tr>
+        <tr class="even">
+          <td>Card mailing state</td>
+          <td>{{ visafraudreport?.cardholder_state }}</td>
+        </tr>
+        <tr class="even">
+          <td>Payment brand</td>
+          <td>{{ visafraudreport?.payment_brand }}</td>
+        </tr>
+        <tr class="even">
+          <td>Processed transaction</td>
+          <td>{{ visafraudreport?.processed_transaction_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Merchant ID</td>
+          <td>{{ visafraudreport?.merchant_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Created at</td>
+          <td>{{ visafraudreport?.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+        <tr class="even">
+          <td>Updated at</td>
+          <td>{{ visafraudreport?.updated_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/merchantusers/edit', merchantuser.id]">
+    Edit Merchant User
+  </a>
+</div>
+
+<h5 class="element-header">Merchant User #{{merchantuser?.id}}</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <h4>
+      {{merchantuser.first_name}} {{merchantuser.last_name}}
+    </h4>
+
+    <div class="activity">
+      <span *ngIf="merchantuser.last_activity_at">last activity - {{merchantuser.last_activity_at | date: 'yyyy-MM-dd HH:mm'}}</span>
+    </div>
+
+    <p><b class="label">Login:</b> {{merchantuser.login}}</p>
+    <p><b class="label">Email:</b> {{merchantuser.email}}</p>
+    <p><b class="label">Created:</b> {{merchantuser.created_at | date: 'yyyy-MM-dd HH:mm'}}</p>
+    <p><b class="label">Enabled:</b> {{merchantuser.enabled ? 'Yes' : 'No'}}</p>
+    <p><b class="label">Role:</b> {{merchantuser.role}}</p>
+  </div>
+</div>

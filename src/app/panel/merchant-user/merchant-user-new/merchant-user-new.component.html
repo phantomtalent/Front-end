@@ -1,0 +1,188 @@
+<h5 class="element-header">New Merchant User</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="form-group" [ngClass]="errorClasses('login')">
+          <label>Login</label>
+          <input type="text" class="form-control" formControlName="login">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('login')">
+            {{controlValidateMessage('login')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('email')">
+          <label>Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('email')">
+            {{controlValidateMessage('email')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('first_name')">
+          <label>First Name</label>
+          <input type="text" class="form-control" formControlName="first_name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('first_name')">
+            {{controlValidateMessage('first_name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('last_name')">
+          <label>Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('last_name')">
+            {{controlValidateMessage('last_name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('role')">
+          <div class="input-group-prepend">
+            <label>Role</label>
+          </div>
+          <select class="custom-select form-control" formControlName="role">
+            <option value="">Please Select...</option>
+            <option [value]="roleType" *ngFor="let roleType of roleTypes">{{ UserRoleType2LabelMapping[roleType] }}</option>
+            <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('role')">
+              {{controlValidateMessage('role')}}
+            </div>
+          </select>
+        </div>
+
+        <!--<div class="form-group" [ngClass]="errorClasses('enabled')">-->
+          <!--<label>Enabled</label>-->
+          <!--<input type="checkbox" class="form-control" formControlName="enabled">-->
+          <!--<div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('enabled')">-->
+            <!--{{controlValidateMessage('enabled')}}-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <legend><span>Transaction types</span></legend>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_authorize').value, 'btn-light': !formGroup.get('tnx_authorize').value}"
+                      (click)="selectTnx('tnx_authorize')">
+                <i class="fa fa-check mr-2" *ngIf="formGroup.get('tnx_authorize').value"></i>Authorize
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_authorize3d').value, 'btn-light': !formGroup.get('tnx_authorize3d').value}"
+                      (click)="selectTnx('tnx_authorize3d')"><i class="fa fa-check mr-2"
+                                                                *ngIf="formGroup.get('tnx_authorize3d').value"></i>Authorize3D</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_sale').value, 'btn-light': !formGroup.get('tnx_sale').value}"
+                      (click)="selectTnx('tnx_sale')"><i class="fa fa-check mr-2"
+                                                         *ngIf="formGroup.get('tnx_sale').value"></i>Sale</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_sale3d').value, 'btn-light': !formGroup.get('tnx_sale3d').value}"
+                      (click)="selectTnx('tnx_sale3d')"><i class="fa fa-check mr-2"
+                                                           *ngIf="formGroup.get('tnx_sale3d').value"></i>Sale3D</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_capture').value, 'btn-light': !formGroup.get('tnx_capture').value}"
+                      (click)="selectTnx('tnx_capture')"><i class="fa fa-check mr-2"
+                                                            *ngIf="formGroup.get('tnx_capture').value"></i>Capture</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_refund').value, 'btn-light': !formGroup.get('tnx_refund').value}"
+                      (click)="selectTnx('tnx_refund')"><i class="fa fa-check mr-2"
+                                                           *ngIf="formGroup.get('tnx_refund').value"></i>Refund</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_void').value, 'btn-light': !formGroup.get('tnx_void').value}"
+                      (click)="selectTnx('tnx_void')"><i class="fa fa-check mr-2"
+                                                         *ngIf="formGroup.get('tnx_void').value"></i>Void</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_init_recurring_sale').value, 'btn-light': !formGroup.get('tnx_init_recurring_sale').value}"
+                      (click)="selectTnx('tnx_init_recurring_sale')"><i class="fa fa-check mr-2"
+                                                                        *ngIf="formGroup.get('tnx_init_recurring_sale').value"></i>Init Recurring Sale</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_recurring_sale').value, 'btn-light': !formGroup.get('tnx_recurring_sale').value}"
+                      (click)="selectTnx('tnx_recurring_sale')"><i class="fa fa-check mr-2"
+                                                                   *ngIf="formGroup.get('tnx_recurring_sale').value"></i>Recurring Sale</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('tnx_account_verification').value, 'btn-light': !formGroup.get('tnx_account_verification').value}"
+                      (click)="selectTnx('tnx_account_verification')"><i class="fa fa-check mr-2"
+                                                                         *ngIf="formGroup.get('tnx_account_verification').value"></i>Account Verification</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('owner_id')">
+          <div class="input-group-prepend">
+            <label>Merchant</label>
+          </div>
+          <app-select-search [fc]="formGroup.get('owner_id')"
+                             [values]="merchantselectdata"></app-select-search>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('owner_id')">
+            {{controlValidateMessage('owner_id')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('enabled')">
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="enabled" class="form-check-input" formControlName="enabled">
+            <label class="form-check-label" for="enabled">Enabled</label>
+          </div>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('enabled')">
+            {{controlValidateMessage('enabled')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create user</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="loginValueExists" class="alert alert-danger">User with current name already exists!</div>
+          <div *ngIf="emailValueExists" class="alert alert-danger">Email already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

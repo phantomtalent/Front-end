@@ -1,0 +1,57 @@
+<h5 class="element-header">New Reseller</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('admin_id')">
+          <div class="input-group-prepend">
+            <label>Merchant</label>
+          </div>
+          <app-select-search [fc]="formGroup.get('admin_id')"
+                             [values]="merchantselectsdata"></app-select-search>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('admin_id')">
+            {{controlValidateMessage('admin_id')}}
+          </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('domain')">
+          <label>Domain</label>
+          <input type="text" class="form-control" formControlName="domain">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('domain')">
+            {{controlValidateMessage('domain')}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button type="button" class="btn btn-block"
+                      [ngClass]="{'btn-success': formGroup.get('enabled').value, 'btn-light': !formGroup.get('enabled').value}"
+                      (click)="selectTnx('enabled')"><i class="fa fa-check mr-2"
+                                                        *ngIf="formGroup.get('enabled').value"></i>Enabled</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create Reseller</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="nameValueExists" class="alert alert-danger">Reseller with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

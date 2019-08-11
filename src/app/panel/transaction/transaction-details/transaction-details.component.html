@@ -1,0 +1,114 @@
+<div class="transaction-details">
+  <div class="element-actions">
+    <div class="btn-group mb-2">
+      <button (click)="viewReceipt()" class="btn btn-secondary" style="min-width: 140px" type="button">
+        View Receipt
+      </button>
+    </div>
+  </div>
+
+  <h5 class="element-header" *ngIf="config.showHeader">Transaction #{{transaction?.id}}</h5>
+
+  <div class="section additional-transactions ">
+
+    <div class="element-box-header">
+      <div class="title">
+        <i class="fa fa-file"></i>
+        Additional transactions
+      </div>
+    </div>
+    <div class="details-wrapper">
+      <app-additional-transactions [transactions]="additionalTransactions"></app-additional-transactions>
+    </div>
+  </div>
+  <div class="section">
+    <app-accordion>
+      <div accordion-el="title">
+        <i class="fa fa-file"></i>
+        Transaction Notes
+      </div>
+      <div accordion-el="content">
+        <app-create-transactrion-note (create)="createTransactionNote($event)"></app-create-transactrion-note>
+        <app-transaction-notes-details-list [notes]="notes" (delete)="deleteNote($event)" (review)="reviewNote($event)"></app-transaction-notes-details-list>
+      </div>
+    </app-accordion>
+  </div>
+
+  <div class="section">
+    <app-accordion>
+      <div accordion-el="title">
+        <i class="fa fa-building"></i>
+        Log
+      </div>
+      <div accordion-el="content">
+        <app-transaction-logs [logs]="logs"></app-transaction-logs>
+      </div>
+    </app-accordion>
+  </div>
+
+  <div class="section" *ngIf="config.showDetails">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="section" *ngIf="billingAddress && billingAddress.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-home"></i>
+              Billing Address
+            </div>
+            <div accordion-el="content">
+              <app-transaction-billing-address [billingAddress]="billingAddress"></app-transaction-billing-address>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section" *ngIf="shippingAddress && shippingAddress.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-truck"></i>
+              Shipping Address
+            </div>
+            <div accordion-el="content">
+              <app-transaction-shipping-address [shippingAddress]="shippingAddress"></app-transaction-shipping-address>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-th"></i>
+              Details
+            </div>
+            <div accordion-el="content">
+              <app-transaction-full-details [transaction]="transaction"></app-transaction-full-details>
+            </div>
+          </app-accordion>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="section" *ngIf="notification && notification.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-bell"></i>
+              Notifications
+            </div>
+            <div accordion-el="content">
+              <app-transaction-notification [notification]="notification"></app-transaction-notification>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-th"></i>
+              Additional Attributes
+            </div>
+            <div accordion-el="content">
+              <app-transaction-additional-attributes></app-transaction-additional-attributes>
+            </div>
+          </app-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

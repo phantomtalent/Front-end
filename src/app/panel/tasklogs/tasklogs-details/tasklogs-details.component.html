@@ -1,0 +1,12 @@
+<h5 class="element-header">Task Log #{{tasklogs?.id}}</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <p><b class="label">ID</b>{{tasklogs?.id}}</p>
+    <p><b class="label">Status</b>{{tasklogs?.status}}</p>
+    <p><b class="label">Task Name</b>{{tasklogs?.task_name}}</p>
+    <p><b class="label">Info</b>{{tasklogs?.info}}</p>
+    <p><b class="label">Log</b>{{tasklogs?.log}}</p>
+    <p><b class="label">Created At:</b>{{tasklogs?.created_at | date: 'yyyy-MM-dd HH:mm'}}</p>
+  </div>
+</div>

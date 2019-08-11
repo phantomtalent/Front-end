@@ -1,0 +1,30 @@
+<div class="transaction-details">
+
+    <h5 class="element-header" *ngIf="config.showHeader">Mastercard Fraud Report</h5>
+
+    <div class="section additional-transactions ">
+
+        <div class="element-box-header">
+            <div class="title">
+                <i class="fa fa-file"></i>
+                Mastercard Fraud Reports
+            </div>
+        </div>
+        <div class="details-wrapper">
+            <app-additional-mastercard-fraud-report [mastercardfraudreports]="additionalMastercardfraudreport"></app-additional-mastercard-fraud-report>
+        </div>
+    </div>
+
+    <div class="section" *ngIf="config.showDetails">
+      <app-accordion>
+        <div accordion-el="title">
+          <i class="fa fa-th"></i>
+          Details
+        </div>
+        <div accordion-el="content">
+          <app-mastercard-fraud-report-full-details [mastercardfraudreport]="mastercardfraudreport"></app-mastercard-fraud-report-full-details>
+        </div>
+      </app-accordion>
+    </div>
+
+</div>

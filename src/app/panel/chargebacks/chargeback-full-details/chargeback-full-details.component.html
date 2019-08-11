@@ -1,0 +1,236 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+  <tbody>
+  <tr class="even">
+    <td>ID</td>
+    <td>{{ chargeback?.id }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Merchant number</td>
+    <td>{{ chargeback?.merchant_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Post date</td>
+    <td>{{ chargeback?.post_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Item type</td>
+    <td>{{ chargeback?.item_type }}</td>
+  </tr>
+  <tr class="even">
+    <td>Card number</td>
+    <td>{{ chargeback?.card_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Acquirer reference</td>
+    <td>{{ chargeback?.acquirer_reference }}</td>
+  </tr>
+  <tr class="odd">
+    <td>RC code</td>
+    <td>{{ chargeback?.rc_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>RC description</td>
+    <td>{{ chargeback?.rc_description }}</td>
+  </tr>
+  <tr class="odd">
+    <td>Currency</td>
+    <td>{{ chargeback?.currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Amount</td>
+    <td>{{ chargeback?.amount | currency:chargeback?.currency:'' }} {{ chargeback?.currency }}</td>
+  </tr>
+  <tr class="odd">
+    <td>CNN</td>
+    <td>{{ chargeback?.cnn }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original post date</td>
+    <td>{{ chargeback?.original_post_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction date</td>
+    <td>{{ chargeback?.original_transaction_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original type</td>
+    <td>{{ chargeback?.original_type }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction currency</td>
+    <td>{{ chargeback?.original_transaction_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original transaction amount</td>
+    <td>{{ chargeback?.original_transaction_amount | currency:chargeback?.original_transaction_currency:'' }} {{
+      chargeback?.original_transaction_currency }}
+    </td>
+  </tr>
+  <tr class="even">
+    <td>Merchant settlement currency</td>
+    <td>{{ chargeback?.merchant_settlement_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant settlement amount</td>
+    <td>{{ chargeback?.merchant_settlement_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Network settlement currency</td>
+    <td>{{ chargeback?.network_settlement_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Network settlement amount</td>
+    <td>{{ chargeback?.network_settlement_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original slip</td>
+    <td>{{ chargeback?.original_slip }}</td>
+  </tr>
+  <tr class="even">
+    <td>Item slip number</td>
+    <td>{{ chargeback?.item_slip_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Auth code</td>
+    <td>{{ chargeback?.auth_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>Batch number</td>
+    <td>{{ chargeback?.batch_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant dba name</td>
+    <td>{{ chargeback?.merchant_dba_name }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant transaction reference</td>
+    <td>{{ chargeback?.merchant_transaction_reference }}</td>
+  </tr>
+  <tr class="even">
+    <td>Capture method</td>
+    <td>{{ chargeback?.capture_method }}</td>
+  </tr>
+  <tr class="even">
+    <td>Member message text</td>
+    <td>{{ chargeback?.member_message_text }}</td>
+  </tr>
+  <tr class="even">
+    <td>Document indicator</td>
+    <td>{{ chargeback?.document_indicator }}</td>
+  </tr>
+  <tr class="even">
+    <td>Retrieval request ID</td>
+    <td>{{ chargeback?.retrieval_request_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback reference ID</td>
+    <td>{{ chargeback?.chargeback_reference_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Due date</td>
+    <td>{{ chargeback?.due_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Central processing date</td>
+    <td>{{ chargeback?.central_processing_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Work by date</td>
+    <td>{{ chargeback?.work_by_date | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback amount</td>
+    <td>{{ chargeback?.chargeback_amount | currency:chargeback?.chargeback_currency:'' }} {{
+      chargeback?.chargeback_currency }}
+    </td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback currency</td>
+    <td>{{ chargeback?.chargeback_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Partial amount</td>
+    <td>{{ chargeback?.partial_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback account amount</td>
+    <td>{{ chargeback?.chargeback_account_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Chargeback account currency</td>
+    <td>{{ chargeback?.chargeback_account_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>e-Wallet type</td>
+    <td>{{ chargeback?.e_wallet_type }}</td>
+  </tr>
+  <tr class="even">
+    <td>VME add auth method</td>
+    <td>{{ chargeback?.vme_add_auth_method }}</td>
+  </tr>
+  <tr class="even">
+    <td>VME add auth reason code</td>
+    <td>{{ chargeback?.vme_add_auth_reason_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>PPOL program data</td>
+    <td>{{ chargeback?.ppol_program_data }}</td>
+  </tr>
+  <tr class="even">
+    <td>Processed Transaction ID</td>
+    <td>{{ chargeback?.processed_transaction_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant ID</td>
+    <td>{{ chargeback?.merchant_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Created at</td>
+    <td>{{ chargeback?.created_at | date: 'yyyy-MM-dd HH:mm' }}</td>
+  </tr>
+  <tr class="even">
+    <td>Updated at</td>
+    <td>{{ chargeback?.updated_at }}</td>
+  </tr>
+  <tr class="even">
+    <td>Case ID</td>
+    <td>{{ chargeback?.case_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Item Type Code</td>
+    <td>{{ chargeback?.item_type_code }}</td>
+  </tr>
+  <tr class="even">
+    <td>Original Chargeback Slip</td>
+    <td>{{ chargeback?.original_chargeback_slip }}</td>
+  </tr>
+  <tr class="even">
+    <td>Client Number</td>
+    <td>{{ chargeback?.client_number }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant Funding Currency</td>
+    <td>{{ chargeback?.merchant_funding_currency }}</td>
+  </tr>
+  <tr class="even">
+    <td>Merchant Funding Amount</td>
+    <td>{{ chargeback?.merchant_funding_amount }}</td>
+  </tr>
+  <tr class="even">
+    <td>Authorization Record Sequence</td>
+    <td>{{ chargeback?.authorization_record_sequence }}</td>
+  </tr>
+  <tr class="even">
+    <td>Previous transfer to merchant</td>
+    <td>{{ chargeback?.previous_transfer_to_merchant }}</td>
+  </tr>
+  <tr class="even">
+    <td>Unique transaction identifier</td>
+    <td>{{ chargeback?.unique_tran_id }}</td>
+  </tr>
+  <tr class="even">
+    <td>Dispute condition code</td>
+    <td>{{ chargeback?.dispute_condition_code }}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,50 @@
+<h5 class="element-header">New Acquirer</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <legend><span>Acquirer Configurations</span></legend>
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('country_code')">
+          <div class="input-group-prepend">
+            <label>Country</label>
+          </div>
+          <app-select-search [fc]="formGroup.get('country_code')"
+                             [values]="countryselectdata"></app-select-search>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('country_code')">
+            {{controlValidateMessage('country_code')}}
+          </div>
+        </div>
+
+        <div class="form-group select-search" [ngClass]="errorClasses('timezone')">
+          <div class="input-group-prepend">
+            <label>Timezone</label>
+          </div>
+          <app-select-search [fc]="formGroup.get('timezone')"
+                             [values]="timezoneselectdata"></app-select-search>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('timezone')">
+            {{controlValidateMessage('timezone')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create Acquirer</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="nameValueExists" class="alert alert-danger">Acquirer with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

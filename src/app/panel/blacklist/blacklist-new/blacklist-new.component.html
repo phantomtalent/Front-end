@@ -1,0 +1,61 @@
+<h5 class="element-header">New Blacklist</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('value')">
+          <label>Value</label>
+          <input type="text" class="form-control" formControlName="value">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('value')">
+            {{controlValidateMessage('value')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('comment')">
+          <label>Comment</label>
+          <input type="text" class="form-control" formControlName="comment">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('comment')">
+            {{controlValidateMessage('comment')}}
+          </div>
+        </div>
+
+        <div class="form-group select-list" [ngClass]="errorClasses('blacklist_owner_id')">
+          <div class="input-group-prepend">
+            <label>Blacklist owner</label>
+          </div>
+          <app-select-list [fc]="formGroup.get('blacklist_owner_id')"
+                           [values]="data"></app-select-list>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('blacklist_owner_id')">
+            {{controlValidateMessage('blacklist_owner_id')}}
+          </div>
+          <!--<select class="custom-select" formControlName="blacklist_owner_id">-->
+            <!--<option selected>Please Select...</option>-->
+            <!--<option [value]="merchant.id" *ngFor="let merchant of merchants">{{ merchant.name }}</option>-->
+            <!--<div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('blacklist_owner_id')">-->
+              <!--{{controlValidateMessage('blacklist_owner_id')}}-->
+            <!--</div>-->
+          <!--</select>-->
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create Blacklist</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="nameValueExists" class="alert alert-danger">Blacklist with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

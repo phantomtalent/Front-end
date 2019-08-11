@@ -1,0 +1,61 @@
+<table class="table table-striped table-lightfont dataTable" role="grid">
+    <tbody>
+
+        <tr class="even">
+            <td>ID</td>
+            <td>{{ transaction?.id }}</td>
+        </tr>
+        <tr class="odd">
+            <td>Reference transaction ID</td>
+            <td>{{ transaction?.reference_transaction_id }}</td>
+        </tr>
+        <tr class="even">
+            <td>Merchant ID</td>
+            <td>{{ transaction?.merchant_id }}</td>
+        </tr>
+        <tr class="odd">
+            <td>Contract ID</td>
+            <td>{{ transaction?.contract_id }}</td>
+        </tr>
+        <tr class="even">
+            <td>Contract acquirer</td>
+            <td></td>
+        </tr>
+        <tr class="even">
+          <td>Status</td>
+          <td>{{ transaction?.status }}</td>
+        </tr>
+        <tr class="odd">
+            <td>Contract gateway</td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td>Contract terminal token</td>
+            <td></td>
+        </tr>
+        <tr class="odd">
+            <td>Contract Description</td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td>Termainal ID</td>
+          <td>{{ transaction?.terminal_id }}</td>
+        </tr>
+        <tr class="odd">
+            <td>Terminal name</td>
+            <td>{{ transaction?.terminal_name }}</td>
+        </tr>
+        <tr class="even">
+            <td>Unique ID</td>
+            <td>{{ transaction?.unique_id }}</td>
+        </tr>
+        <tr class="even">
+          <td>Type</td>
+          <td>{{ transaction?.type }}</td>
+        </tr>
+        <tr class="even">
+            <td>External ID</td>
+          <td>{{ transaction?.external_id }}</td>
+        </tr>
+    </tbody>
+</table>

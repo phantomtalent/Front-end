@@ -1,0 +1,90 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/merchants/edit', merchant.id]">
+    Edit Merchant
+  </a>
+</div>
+
+<h5 class="element-header">Merchant details</h5>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="element-box">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <div class="details-wrapper">
+            <p><b class="label">ID</b>{{merchant.id}}</p>
+            <p><b class="label">Name</b>{{merchant.name}}</p>
+            <p><b class="label">Login</b>{{merchant.login}}</p>
+            <p>
+              <b class="label">Password</b>
+              <span *ngIf = "isPassShow">{{merchant.pwd}}</span>
+              <span *ngIf = "!isPassShow">
+                <i class="fa fa-lock lock-icon" (click) = "showPassword()"></i>
+                *************
+              </span>
+            </p>
+            <p><b class="label">Street Address</b>{{merchant.street_address}}</p>
+            <p><b class="label">Zip Code</b>{{merchant.zip_code}}</p>
+            <p><b class="label">State</b>{{merchant.address_state}}</p>
+            <p><b class="label">Allowed Domains</b>{{merchant.allowed_domains}}</p>
+            <p><b class="label">State</b>{{ MerchantStateType2LabelMapping[merchant.state_raw] }}</p>
+            <p><b class="label">Supports API</b>{{merchant.supports_api}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="section-details">
+      <app-accordion-group>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Merchant Companies
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Company', selector: 'name',  editable: false}" [list]="companiesList">
+              </app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Merchant Users
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Merchant User', selector: 'login',  editable: false}" [list]="merchantUserList">
+              </app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-envelope"></i>
+            Notification URLs
+          </div>
+          <div accordion-el="content">
+            <div *ngIf="notificationUrlsList.length" class="notification-url-container mt-1">
+              <div class="mt-2 container" *ngFor="let url of notificationUrlsList">
+                <div class="row bg bg-light">
+                  <div class="col-md-10 p-2 d-flex align-items-center border border-gray border-right-0">
+                    <div>{{url.url_type}}</div>
+                    <span
+                      class="badge ml-2" [ngClass]="{'badge-danger':!url.enabled,'badge-success':url.enabled}"
+                    >{{url.enabled ? 'Enabled' : 'Disabled'}}</span>
+                  </div>
+                </div>
+                <div class="row border p-2 border-gray border-top-0 overflow-auto">
+                  {{url.url}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </app-accordion>
+      </app-accordion-group>
+    </div>
+  </div>
+</div>

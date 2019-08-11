@@ -1,0 +1,17 @@
+<h5 class="element-header">Notification details</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <p><b class="label">ID</b>{{notification.id}}</p>
+    <p><b class="label">Status</b>{{notification.status}}</p>
+    <p><b class="label">Retry</b>{{notification.retry}}</p>
+    <p><b class="label">Created At</b>{{notification.created_at | date: 'yyyy-MM-dd HH:mm' }}</p>
+    <p><b class="label">Updated at</b>{{notification.updated_at | date: 'yyyy-MM-dd HH:mm' }}</p>
+    <p><b class="label">Notifyable</b>{{notification.notifyable_id}}</p>
+    <p><b class="label">Notifyable type</b>{{notification.notifyable_type}}</p>
+    <p><b class="label">Type</b>{{notification.type}}</p>
+    <p><b class="label">Response</b>{{ notification.response }}</p>
+    <p><b class="label">Http code</b>{{notification.http_code}}</p>
+    <p><b class="label">Notification URL</b></p>
+  </div>
+</div>

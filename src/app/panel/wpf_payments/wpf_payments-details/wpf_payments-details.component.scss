@@ -1,0 +1,42 @@
+.transaction-details {
+  -webkit-animation-name: fadeUp;
+  animation-name: fadeUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  .section {
+    &.additional-transactions {
+      border-radius: 6px;
+      background: white;
+      .details-wrapper {
+        padding: 0 10px;
+      }
+    }
+    margin-bottom: 20px;
+  }
+
+  .element-box-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(126, 142, 177, 0.12);
+
+    .title {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin: 0;
+      font-size: 16px;
+
+      .fa {
+        margin-right: 10px;
+      }
+
+    }
+  }
+  ::ng-deep .accordion-component {
+    background: white;
+  }
+}

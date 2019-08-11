@@ -1,0 +1,118 @@
+<div class="transaction-details">
+
+  <h5 class="element-header">WPF Transaction #{{wpfPayment?.id}}</h5>
+
+  <div class="section additional-transactions ">
+
+    <div class="element-box-header">
+      <div class="title">
+        <i class="fa fa-file"></i>
+        WPF Payment
+      </div>
+    </div>
+    <div class="details-wrapper">
+      <app-wpf-payments-additional-transactions [wpfPayments]="wpfPayments"></app-wpf-payments-additional-transactions>
+    </div>
+  </div>
+  <div class="section additional-transactions" *ngIf="additionalTransactions && additionalTransactions.length">
+
+    <div class="element-box-header">
+      <div class="title">
+        <i class="fa fa-file"></i>
+        Payment Transactions
+      </div>
+    </div>
+    <div class="details-wrapper">
+      <app-additional-transactions [transactions]="additionalTransactions"></app-additional-transactions>
+    </div>
+
+    <!--<app-accordion>-->
+    <!--<div accordion-el="title">-->
+    <!--<i class="fa fa-file"></i>-->
+    <!--Payment Transactions-->
+    <!--</div>-->
+    <!--<div accordion-el="content">-->
+    <!--&lt;!&ndash;<app-create-transactrion-note (create)="createTransactionNote($event)"></app-create-transactrion-note>&ndash;&gt;-->
+    <!--&lt;!&ndash;<app-transaction-notes-details-list [notes]="notes" (delete)="deleteNote($event)" (review)="reviewNote($event)"></app-transaction-notes-details-list>&ndash;&gt;-->
+    <!--</div>-->
+    <!--</app-accordion>-->
+  </div>
+
+  <div class="section">
+    <app-accordion>
+      <div accordion-el="title">
+        <i class="fa fa-building"></i>
+        Log
+      </div>
+      <div accordion-el="content">
+        <app-wpf-transaction-transaction-logs [logs]="logs"></app-wpf-transaction-transaction-logs>
+      </div>
+    </app-accordion>
+  </div>
+
+  <div class="section">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="section" *ngIf="billingAddress && billingAddress.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-home"></i>
+              Billing Address
+            </div>
+            <div accordion-el="content">
+              <app-wpf_payments-billing-details [billingAddress]="billingAddress"></app-wpf_payments-billing-details>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section" *ngIf="shippingAddress && shippingAddress.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-truck"></i>
+              Shipping Address
+            </div>
+            <div accordion-el="content">
+              <app-wpf_payments-shipping-details [shippingAddress]="shippingAddress"></app-wpf_payments-shipping-details>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-th"></i>
+              Details
+            </div>
+            <div accordion-el="content">
+              <app-wpf_payment-full-details [wpfPayment]="wpfPayment"></app-wpf_payment-full-details>
+            </div>
+          </app-accordion>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="section" *ngIf="notification && notification.id">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-bell"></i>
+              Notifications
+            </div>
+            <div accordion-el="content">
+              <app-wpf_payment-notification [notification]="notification"></app-wpf_payment-notification>
+            </div>
+          </app-accordion>
+        </div>
+        <div class="section">
+          <app-accordion>
+            <div accordion-el="title">
+              <i class="fa fa-th"></i>
+              Additional Attributes
+            </div>
+            <div accordion-el="content">
+              <app-transaction-additional-attributes></app-transaction-additional-attributes>
+            </div>
+          </app-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

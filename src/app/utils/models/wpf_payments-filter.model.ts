@@ -1,0 +1,17 @@
+import {IWpfPaymentsFilter} from '@utils/interfaces';
+
+export class WpfPaymentsFilter implements IWpfPaymentsFilter {
+  from = null;
+  id = null;
+  merchant_id = null;
+  to = null;
+
+  constructor(c?: IWpfPaymentsFilter) {
+    if (c) {
+      this.from = c.from ? c.from : null;
+      this.id = c.id ? c.id : null;
+      this.merchant_id = c.merchant_id ? c.merchant_id : null;
+      this.to = c.to ? c.to : null;
+    }
+  }
+}

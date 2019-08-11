@@ -1,0 +1,19 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/blacklists/edit', blacklist.id]">
+    Edit Blacklist
+  </a>
+</div>
+
+<h5 class="element-header">Blacklist details</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <p><b class="label">ID</b>{{blacklist.id}}</p>
+    <p><b class="label">Name</b>{{blacklist.name}}</p>
+    <p><b class="label">Value</b>{{blacklist.value}}</p>
+    <p><b class="label">Comment</b>{{blacklist.comment}}</p>
+    <p><b class="label">Blacklist Owner</b>{{blacklist.blacklist_owner_id}}</p>
+    <p><b class="label">Masked pan</b>{{blacklist.masked_pan}}</p>
+    <p><b class="label">Created At</b>{{blacklist.created_at | date: 'yyyy-MM-dd HH:mm'}}</p>
+  </div>
+</div>

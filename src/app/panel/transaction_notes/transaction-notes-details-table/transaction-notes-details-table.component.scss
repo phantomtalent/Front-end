@@ -1,0 +1,37 @@
+.transaction-notes-details-table {
+    margin-top: 15px;
+    border: 1px solid rgba(126, 142, 177, 0.12);
+    border-radius: 6px;
+    .transaction-notes-details-table-header {
+        .title {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            i {
+                margin-right: 10px;
+            }
+        }
+        .actions {
+            
+            * {
+                cursor: pointer;
+            }
+            .fa-times {
+                margin: 0 10px;
+                font-size: 17px;
+            }
+        }
+        padding: 0.5em 1em;        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .table {
+        tr {
+            td {
+                &:first-child {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}

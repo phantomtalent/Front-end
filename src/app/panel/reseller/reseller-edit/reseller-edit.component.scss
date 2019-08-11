@@ -1,0 +1,95 @@
+.details-wrapper {
+  padding: 20px 0;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  .activity {
+    margin-bottom: 20px;
+    font-size: .8em;
+    color: #9e9e9e;
+  }
+
+  p {
+    .label {
+      display: inline-block;
+      width: 100px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.section-details {
+  -webkit-animation-name: fadeUp;
+  animation-name: fadeUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+
+  ::ng-deep .accordion-component {
+    background: white;
+  }
+}
+
+.notification-url-container {
+  .border-gray {
+    border-color: #e3e3e3;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.pwd-wrapper{
+  display: flex;
+  justify-content: space-between;
+  input[type=text]{
+    border-radius: 4px 0px 0px 4px;
+  }
+  .btn {
+    height: calc(1.5em + .75rem + 2px);
+    border-radius: 0px 4px 4px 0px;
+  }
+}
+
+.ng-select.ng-select-focused.custom::ng-deep{
+  .ng-select-container {
+    border-width: 2px!important;
+    border-color: #047bf8!important;
+    box-shadow: none;
+  }
+}
+
+.ng-select.custom::ng-deep {
+  .ng-select-container {
+    border-color: #dde2ec;
+    border-width: 2px;
+    .ng-value-container {
+      .ng-value {
+        background-color: #e2ebff!important;
+        border: 1px solid #4771d2;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: #3E4B5B;
+        span.ng-value-icon.left{
+          font-weight: bold;
+          border: none;
+          padding: 0px 3px 0px 3px;
+          margin-left: 2px;
+        }
+        span.ng-value-label{
+          font-weight: 300;
+          padding: 1px 5px 2px 0px;
+
+        }
+      }
+      .ng-input{
+        input{
+          cursor: text;
+        }
+      }
+    }
+  }
+}
+

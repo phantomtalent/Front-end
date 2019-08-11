@@ -1,0 +1,65 @@
+<h5 class="element-header">{{ filter.filter_class }}</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+        <ng-container *ngIf="filter.filter_settings">
+          <ng-container *ngFor="let setting_key of keys(filter.filter_settings)">
+            <div class="form-group">
+              <ng-container [ngSwitch]="filter.filter_settings[setting_key].type">
+                <ng-container *ngSwitchCase="formFieldTypes.Input">
+                  <label>{{ filter.filter_settings[setting_key].name }}</label>
+                  <input type="text" class="form-control" formControlName="{{ setting_key }}">
+                </ng-container>
+
+                <ng-container *ngSwitchCase="formFieldTypes.Number">
+                  <label>{{ filter.filter_settings[setting_key].name }}</label>
+                  <input type="number" class="form-control" formControlName="{{ setting_key }}">
+                </ng-container>
+
+                <ng-container *ngSwitchCase="formFieldTypes.Checkbox">
+                  <div class="form-check form-check-inline">
+                    <input type="checkbox" id="{{ setting_key }}" class="form-check-input" formControlName="{{ setting_key }}">
+                    <label class="form-check-label" for="{{ setting_key }}">{{ filter.filter_settings[setting_key].name }}</label>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="formFieldTypes.Select">
+                  <div class="input-group-prepend">
+                    <label>{{ filter.filter_settings[setting_key].name }}</label>
+                  </div>
+                  <select class="custom-select form-control" formControlName="{{ setting_key }}">
+                    <option [value]="option" *ngFor="let option of filter.filter_settings[setting_key].options">{{ option }}</option>
+                    <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors(setting_key)">
+                      {{controlValidateMessage(setting_key)}}
+                    </div>
+                  </select>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="formFieldTypes.MultiSelect">
+                  <label>{{ filter.filter_settings[setting_key].name }}</label>
+                  <app-multiselect [data]="filter.filter_settings[setting_key].options" formControlName="{{ setting_key }}"></app-multiselect>
+                </ng-container>
+              </ng-container>
+              <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors(setting_key)">
+                {{controlValidateMessage(setting_key)}}
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Update filter</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="valueExists" class="alert alert-danger">Filter with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

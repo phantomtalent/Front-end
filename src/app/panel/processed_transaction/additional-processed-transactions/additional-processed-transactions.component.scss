@@ -1,0 +1,22 @@
+.dataTables_wrapper {
+    .row {
+        &:first-child {
+            border-bottom: none;
+        }
+        &:last-child {
+            border-top: none;
+        }
+    }
+}
+
+.date:hover {
+  text-decoration: underline
+}
+
+td{
+  outline: none
+}
+
+.dataTables_wrapper > .row {
+  overflow: visible;
+}

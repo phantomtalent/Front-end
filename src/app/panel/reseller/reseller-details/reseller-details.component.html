@@ -1,0 +1,44 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/resellers/edit', reseller.id]">
+    Edit Reseller
+  </a>
+</div>
+
+<h5 class="element-header">Reseller details</h5>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="element-box">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <div class="details-wrapper">
+            <p><b class="label">ID</b> {{reseller.id}}</p>
+            <p><b class="label">Name</b> {{reseller.name}}</p>
+            <p><b class="label">Domain</b> {{reseller.domain}}</p>
+            <p><b class="label">Enabled</b> {{reseller.enabled ? 'Yes' : 'No'}}</p>
+            <p><b class="label">Admin ID</b> {{reseller.admin_id}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="section-details">
+      <app-accordion-group>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Reseller Users
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Reseller User', selector: 'login',  editable: false}"
+                              [list]="resellerUserList">
+              </app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+      </app-accordion-group>
+    </div>
+  </div>
+</div>

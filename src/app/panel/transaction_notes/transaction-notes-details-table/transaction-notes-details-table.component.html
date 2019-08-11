@@ -1,0 +1,61 @@
+<div class="transaction-notes-details-table">
+  <div class="transaction-notes-details-table-header">
+    <div class="title">
+        <i class="fa fa-th"></i>
+        <span>Note</span>
+    </div>
+    
+    <div class="actions text-primary">
+      <i class="fa fa-envelope" (click)="markAsReviewed(template)" *ngIf="!note?.reviewed_by"></i>
+      <i class="fa fa-check" *ngIf="note?.reviewed_by"></i>
+      <span (click)="deleteNote(template)">
+          <i class="fa fa-times text-danger"></i><span>Delete note</span>
+      </span>
+      <ng-template #template>
+          <app-confirm-dialog (close)="confirm($event)">
+            {{ message }}
+          </app-confirm-dialog>
+        </ng-template>
+    </div>
+  </div>
+  <table class="table table-striped table-lightfont dataTable" role="grid">
+    <tbody>
+      <tr class="even">
+        <td>Note ID</td>
+        <td>{{ note?.id }}</td>
+      </tr>
+      <tr class="odd">
+        <td>Category</td>
+        <td>{{ note?.category }}</td>
+      </tr>
+      <tr class="even">
+        <td>Priority</td>
+        <td>{{ note?.priority }}</td>
+      </tr>
+      <tr class="odd">
+        <td>Transaction</td>
+        <td>{{ note?.transition }}</td>
+      </tr>
+      <tr class="even">
+        <td>Message</td>
+        <td>{{ note?.message }}</td>
+      </tr>
+      <tr class="odd">
+        <td>Info</td>
+        <td></td>
+      </tr>
+      <tr class="even">
+        <td>Code</td>
+        <td></td>
+      </tr>
+      <tr class="odd">
+        <td>Payload</td>
+        <td></td>
+      </tr>
+      <tr class="even">
+        <td>Termainal ID</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

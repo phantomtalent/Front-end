@@ -1,0 +1,45 @@
+<div class="table-responsive">
+    <div class="dataTables_wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-lightfont dataTable" role="grid">
+                    <thead>
+                        <tr role="row">
+                            <th scope="col">#</th>
+                            <th scope="col">Created at</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Transaction date</th>
+                            <th scope="col">Merchant</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">ARN</th>
+                            <th scope="col">Merchant Transaction ID</th>
+                            <th scope="col">Transaction ID</th>
+                            <th scope="col">Card number</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let processedtransaction of processedTransactions; let ind = index;" role="row" [ngClass]="{odd: ind % 2 === 0, even: ind % 2 !== 0}">
+                            <td scope="row">{{processedtransaction.id}}</td>
+                            <td [ngSwitch]="processedtransaction.status">
+                                <span *ngSwitchCase="'cleared'" class="badge badge-success">Cleared</span>
+                                <span *ngSwitchDefault class="badge">Unknown</span>
+                            </td>
+                            <td>{{processedtransaction.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+                            <td>{{processedtransaction.transaction_date | date: 'yyyy-MM-dd HH:mm'}}</td>
+                            <td class='date' [routerLink]="['/panel/merchants', processedtransaction.merchant_id]">{{processedtransaction.merchant_name}}</td>
+                            <td>{{processedtransaction.type}}</td>
+                            <td>{{processedtransaction.acquirer_reference}}</td>
+                            <td>{{processedtransaction.merchant_transaction_id}}</td>
+                            <td>{{processedtransaction.unique_id}}</td>
+                            <td>{{ processedtransaction.card_number }}</td>
+                            <td>{{ processedtransaction.amount / 100 | currency:processedtransaction.currency:'' }} {{ processedtransaction.currency }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

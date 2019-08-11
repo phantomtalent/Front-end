@@ -1,0 +1,52 @@
+<h5 class="element-header">New Transaction Note</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="form-group" [ngClass]="errorClasses('login')">
+          <label >Login</label>
+          <input type="text" class="form-control" formControlName="login">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('login')">
+            {{controlValidateMessage('login')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('email')">
+          <label >Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('email')">
+            {{controlValidateMessage('email')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('first_name')">
+          <label >First Name</label>
+          <input type="text" class="form-control" formControlName="first_name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('first_name')">
+            {{controlValidateMessage('first_name')}}
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="errorClasses('last_name')">
+          <label >Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('last_name')">
+            {{controlValidateMessage('last_name')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create user</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="loginValueExists" class="alert alert-danger">User with current name already exists!</div>
+          <div *ngIf="emailValueExists" class="alert alert-danger">Email already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

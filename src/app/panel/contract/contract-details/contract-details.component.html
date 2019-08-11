@@ -1,0 +1,77 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/contracts/edit', contract.id]">
+    Edit Contract
+  </a>
+</div>
+
+<h5 class="element-header">Contract details</h5>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="element-box">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <div class="details-wrapper">
+            <p><b class="label">ID</b> {{contract.id}}</p>
+            <p><b class="label">Name</b> {{contract.name}}</p>
+            <p><b class="label">Reseller</b> {{contract.reseller_id}}</p>
+            <p><b class="label">Merchant</b> {{contract.merchant_name}}</p>
+            <p><b class="label">Acquirer</b> {{contract.name}}</p>
+            <p><b class="label">Gateway</b> {{contract.gateway}}</p>
+            <p><b class="label">Descriptor</b> {{contract.descriptor}}</p>
+            <p><b class="label">Merchant City</b> {{contract.merchant_city}}</p>
+            <p><b class="label">Merchant Country</b> {{contract.merchant_country_code}}</p>
+            <p><b class="label">Merchant Number</b> {{contract.merchant_number}}</p>
+            <p><b class="label">Login</b> {{contract.login}}</p>
+            <p>
+              <b class="label">Password</b>
+              <span *ngIf = "isPassShow">{{contract.pwd}}</span>
+              <span *ngIf = "!isPassShow">
+                <i class="fa fa-lock lock-icon" (click) = "showPassword()"></i>
+                *************
+              </span>
+            </p>
+            <p><b class="label">Credential 1</b> {{contract.credential1}}</p>
+            <p><b class="label">Credential 2</b> {{contract.credential2}}</p>
+            <p><b class="label">Terminal Token</b> {{contract.terminal_token}}</p>
+            <p><b class="label">Refund timeframe</b> {{contract.refund_timeframe}}</p>
+            <p><b class="label">Authorize timeframe</b> {{contract.authorize_timeframe}}</p>
+            <p><b class="label">Expires at</b> {{contract.expires_at}}</p>
+            <p><b class="label">Merchant Category Code (MCC)</b> {{contract.merchant_category_code}}</p>
+            <p><b class="label">Timeout seconds</b> {{contract.mpi_timeout_seconds}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="section-details">
+      <app-accordion-group>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-euro"></i>
+            Currencies
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Code', selector: 'code',  editable: false}"
+                              [list]="currencyList"></app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-credit-card"></i>
+            Card Brands
+          </div>
+          <div accordion-el="content">
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Card Brand', selector: 'card_brand',  editable: false}"
+                              [list]="cardBrandsList"></app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+      </app-accordion-group>
+    </div>
+  </div>
+</div>

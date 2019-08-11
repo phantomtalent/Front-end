@@ -1,0 +1,34 @@
+.dataTables_wrapper {
+    .row {
+        &:first-child {
+            border-bottom: none;
+        }
+        &:last-child {
+            border-top: none;
+        }
+    }
+}
+
+.date:hover {
+  text-decoration: underline
+}
+
+td{
+  outline: none
+}
+
+.dataTables_wrapper > .row {
+  overflow: visible;
+}
+
+.router-link {
+  color: #292B2C!important;
+}
+
+.router-link:hover {
+  cursor: pointer!important;
+}
+
+.router-link:active {
+  color: white!important;
+}

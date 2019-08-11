@@ -1,0 +1,32 @@
+.search-wrapper {
+  margin-bottom: 15px;
+}
+.filter-title {
+  flex-grow: 1;
+  max-width: 100%;
+  justify-content: space-between;
+
+  .name {
+    margin-left: 10px;
+  }
+
+  .actions {
+    a, input {
+      margin: 0 5px;
+    }
+    button.accordion-title-btn {
+      vertical-align: baseline;
+      font-size: 16px;
+      padding: 0;
+    }
+    div.select-filters-checkbox {
+      display: inline-block;
+    }
+  }
+}
+.risk-filters-list {
+  -webkit-animation-name: fadeUp;
+  animation-name: fadeUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}

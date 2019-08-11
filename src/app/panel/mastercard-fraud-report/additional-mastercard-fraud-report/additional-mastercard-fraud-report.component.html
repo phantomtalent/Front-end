@@ -1,0 +1,40 @@
+<div class="table-responsive">
+    <div class="dataTables_wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-lightfont dataTable" role="grid">
+                    <thead>
+                        <tr role="row">
+                          <th scope="col">#</th>
+                          <th scope="col">Import date</th>
+                          <th scope="col">Merchant</th>
+                          <th scope="col">Fraud type code</th>
+                          <th scope="col">ARN</th>
+                          <th scope="col">Processed Transaction</th>
+                          <th scope="col">Payment Transaction</th>
+                          <th scope="col">Merchant Transaction ID</th>
+                          <th scope="col">Card Number</th>
+                          <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mastercardfraudreport of mastercardfraudreports; let ind = index;" role="row" [ngClass]="{odd: ind % 2 === 0, even: ind % 2 !== 0}">
+                          <td scope="row">{{mastercardfraudreport.id}}</td>
+                          <td>{{mastercardfraudreport.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+                          <td class='date' [routerLink]="['/panel/merchants', mastercardfraudreport.merchant_id]">{{mastercardfraudreport.merchant_name}}</td>
+                          <td>{{mastercardfraudreport.fraud_type_code}}</td>
+                          <td>{{mastercardfraudreport.acquirer_reference}}</td>
+                          <td>{{mastercardfraudreport.processed_transaction_id}}</td>
+                          <td>{{mastercardfraudreport.processed_transaction_id}}</td>
+                          <td>{{mastercardfraudreport.merchant_transaction_id}}</td>
+                          <td>{{mastercardfraudreport.card_number}}</td>
+                          <td>{{ mastercardfraudreport.amount / 100 | currency:mastercardfraudreport.currency:'' }} {{ mastercardfraudreport.currency }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

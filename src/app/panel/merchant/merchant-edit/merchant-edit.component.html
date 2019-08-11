@@ -1,0 +1,342 @@
+<h5 class="element-header">Edit Merchant</h5>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="element-box">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <form [formGroup]="formGroup" (ngSubmit)="submit()">
+            <legend><span>Merchant Configurations</span></legend>
+            <div class="form-group" [ngClass]="errorClasses('name')">
+              <label>Name</label>
+              <input type="text" class="form-control" formControlName="name">
+              <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+                {{controlValidateMessage('name')}}
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="errorClasses('login')">
+              <label>Login</label>
+              <input type="text" class="form-control" formControlName="login">
+              <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('login')">
+                {{controlValidateMessage('login')}}
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="errorClasses('pwd')">
+              <label>Password</label>
+              <div class="pwd-wrapper">
+                <input type="text" class="form-control float-left" formControlName="pwd">
+                <button class="btn btn-success" type="button" (click) = "generatePassword()">
+                  random password
+                </button>
+                <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('pwd')">
+                  {{controlValidateMessage('pwd')}}
+                </div>
+              </div>
+            </div>
+
+            <legend><span>Merchant Address</span></legend>
+
+            <div class="form-group" [ngClass]="errorClasses('street_address')">
+              <label>Street Address</label>
+              <input type="text" class="form-control" formControlName="street_address">
+              <div class="help-block form-text with-errors form-control-feedback"
+                   *ngIf="controlHasErrors('street_address')">
+                {{controlValidateMessage('street_address')}}
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="errorClasses('zip_code')">
+              <label>Zip Code</label>
+              <input type="text" class="form-control" formControlName="zip_code">
+              <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('zip_code')">
+                {{controlValidateMessage('zip_code')}}
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="errorClasses('address_state')">
+              <label>State</label>
+              <input type="text" class="form-control" formControlName="address_state">
+              <div class="help-block form-text with-errors form-control-feedback"
+                   *ngIf="controlHasErrors('address_state')">
+                {{controlValidateMessage('address_state')}}
+              </div>
+            </div>
+
+            <legend><span>Network Access</span></legend>
+
+            <div class="form-group" [ngClass]="errorClasses('allowed_ip_address')">
+              <label>Allowed IP addresses</label>
+              <ng-select [items]="[]" class = "custom"
+                *ngIf = "isValidateIp()"
+                formControlName = "allowed_ip_address"
+                [addTag]="true"
+                [multiple]="true"
+                [selectOnTab]="true"
+                (change) = "onChange($event)"
+                [isOpen]="false">
+              </ng-select>
+              <ng-select [items]="[]" class = "custom has-error"
+                *ngIf = "!isValidateIp()"
+                formControlName = "allowed_ip_address"
+                [addTag]="true"
+                [multiple]="true"
+                [selectOnTab]="true"
+                (change) = "onChange($event)"
+                [isOpen]="false">
+              </ng-select>
+              <div class="help-block form-text with-errors form-control-feedback"
+                   *ngIf="!isValidateIp()">
+                   Allowed ip addresses has invalid address
+                <!-- {{controlValidateMessage('allowed_ip_address')}} -->
+              </div>
+            </div>
+            <div class="form-group" [ngClass]="errorClasses('allowed_domains')">
+              <label>Allowed Domains</label>
+              <input type="text" class="form-control" formControlName="allowed_domains">
+              <div class="help-block form-text with-errors form-control-feedback"
+                   *ngIf="controlHasErrors('allowed_domains')">
+                {{controlValidateMessage('allowed_domains')}}
+              </div>
+            </div>
+
+            <div class="form-group" [ngClass]="errorClasses('state_raw')">
+              <label>State</label>
+              <select class="custom-select" formControlName="state_raw">
+                <!--<option selected></option>-->
+                <option [value]="stateType" *ngFor="let stateType of stateTypes">{{
+                  MerchantStateType2LabelMapping[stateType] }}
+                </option>
+                <div class="help-block form-text with-errors form-control-feedback"
+                     *ngIf="controlHasErrors('state_raw')">
+                  {{controlValidateMessage('state_raw')}}
+                </div>
+              </select>
+            </div>
+
+            <legend><span>Supported Features & Services</span></legend>
+
+            <div class="form-group" [ngClass]="errorClasses('supports_api')">
+              <div class="form-check form-check-inline">
+                <input type="checkbox" id="supports_api" class="form-check-input" formControlName="supports_api">
+                <label class="form-check-label" for="supports_api">Supports API</label>
+              </div>
+              <div class="help-block form-text with-errors form-control-feedback"
+                   *ngIf="controlHasErrors('supports_api')">
+                {{controlValidateMessage('supports_api')}}
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary" type="submit">Update merchant</button>
+              <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+            </div>
+
+            <div class="error">
+              <div *ngIf="valueExists" class="alert alert-danger">User with current name already exists!</div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="section-details">
+      <app-accordion-group>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Merchant Companies
+          </div>
+          <div accordion-el="content">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <select class="custom-select form-control" [(ngModel)]="company">
+                  <option value="">Please Select...</option>
+                  <option [value]="ct.id" *ngFor="let ct of companies">{{ ct.name }}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4 mt-1">
+                <button type="button" class="btn btn-success btn-block" (click)="addCompany()">Add Company</button>
+              </div>
+            </div>
+            <div *ngIf="successMsg" class="alert alert-success" role="alert">
+              {{successMsg}}
+            </div>
+            <div *ngIf="errorMsg" class="alert alert-danger" role="alert">
+              {{errorMsg}}
+            </div>
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Company', selector: 'name',  editable: true}" [list]="companiesList"
+                              (removeAction)="removeAction($event)"></app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-file-o"></i>
+            Merchant Users
+          </div>
+          <div accordion-el="content">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <select class="custom-select form-control" [(ngModel)]="merchantUser">
+                  <option value="">Please Select...</option>
+                  <option [value]="ct.id" *ngFor="let ct of merchantUsers">{{ ct.login }}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4 mt-1">
+                <button type="button" class="btn btn-success btn-block" (click)="addMerchantUser()">Add Merchant User</button>
+              </div>
+            </div>
+            <div *ngIf="successMerchantUserMsg" class="alert alert-success" role="alert">
+              {{successMerchantUserMsg}}
+            </div>
+            <div *ngIf="errorMerchantUserMsg" class="alert alert-danger" role="alert">
+              {{errorMerchantUserMsg}}
+            </div>
+            <div class="form-group">
+              <app-list-table [config]="{header: 'Merchant User', selector: 'login',  editable: true}" [list]="merchantUserList"
+                              (removeAction)="removeMerchantUserAction($event)"></app-list-table>
+            </div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-envelope"></i>
+            Notification URLs
+          </div>
+          <div accordion-el="content">
+            <div class="mt-2">
+              <a href="javascript:void(0)" (click)="createNotification(template)">Configure new Notification URL</a>
+            </div>
+            <div *ngIf="notificationUrlsList.length" class="notification-url-container mt-1">
+              <div class="mt-2 container" *ngFor="let url of notificationUrlsList">
+                <div class="row bg bg-light">
+                  <div class="col-md-10 p-2 d-flex align-items-center border border-gray border-right-0">
+                    <div>{{url.url_type}}</div>
+                    <span
+                      class="badge ml-2" [ngClass]="{'badge-danger':!url.enabled,'badge-success':url.enabled}"
+                    >{{url.enabled ? 'Enabled' : 'Disabled'}}</span>
+                  </div>
+                  <div class="col-md-2 p-2 border border-gray d-flex align-items-center justify-content-between">
+                    <a>
+                      <i class="fa fa-edit text-info" (click)="editNotification(url,template)"></i>
+                    </a>
+                    <a>
+                      <i class="fa fa-times text-danger" (click)="removeNotification(templateDelete, url)"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="row border p-2 border-gray border-top-0 overflow-auto">
+                  {{url.url}}
+                </div>
+              </div>
+            </div>
+            <ng-template #template>
+              <app-confirm-dialog (close)="createNotificationClosed($event)" title="Notification URL">
+                <form [formGroup]="notificationForm">
+                  <div class="form-group" *ngIf="notificationServerError">
+                    <ng-container [ngSwitch]="notificationServerError">
+                      <div class="alert alert-danger" *ngSwitchCase="'NOTIFICATION_URL_EXISTS'">Server error.
+                        Notification URL exists
+                      </div>
+                    </ng-container>
+                  </div>
+                  <div class="form-group" [ngClass]="errorClasses('url_type', notificationForm)">
+                    <label>Type</label>
+                    <select class="custom-select form-control" formControlName="url_type">
+                      <option disabled value="">Please Select...</option>
+                      <option
+                        [value]="item.type" *ngFor="let item of notificationTypesList"
+                      >{{ item.type }}
+                    </select>
+                    <div
+                      class="help-block form-text with-errors form-control-feedback"
+                      *ngIf="controlHasErrors('url_type', notificationForm)"
+                    >
+                      {{controlValidateMessage('url_type', notificationForm)}}
+                    </div>
+                  </div>
+                  <div class="form-group" [ngClass]="errorClasses('url', notificationForm)">
+                    <label>URL</label>
+                    <input type="text" class="form-control" formControlName="url">
+                    <div
+                      class="help-block form-text with-errors form-control-feedback"
+                      *ngIf="controlHasErrors('url', notificationForm)"
+                    >
+                      {{controlValidateMessage('url', notificationForm)}}
+                    </div>
+                    <div
+                      class="help-block form-text with-errors form-control-feedback"
+                      *ngIf="notificationForm.controls.url.hasError('pattern')"
+                    >
+                      URL has invalid format
+                    </div>
+                  </div>
+                  <div class="form-group form-check">
+                    <input
+                      type="checkbox" id="url_enabled" class="form-check-input" formControlName="enabled"
+                    >
+                    <label class="form-check-label" for="url_enabled">Enabled</label>
+                  </div>
+                </form>
+              </app-confirm-dialog>
+            </ng-template>
+            <ng-template #templateDelete>
+              <app-confirm-dialog (close)="confirmDeleteNotification($event)">
+                Are you sure you want to delete <i>{{notificationDialog?.notification?.url}}</i>?
+              </app-confirm-dialog>
+            </ng-template>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-picture-o"></i>
+            Logo
+          </div>
+          <div accordion-el="content">
+            <div class="alert alert-warning" role="alert">
+                <i class="fa fa-exclamation-triangle"></i> Logo missing!
+            </div>
+            <h6>Upload a logo for this merchant.</h6>
+            <div class="d-flex">
+                <div class="input-group">
+                    <label class="input-group-btn">
+                        <span class="btn btn-primary btn-logo-browse">Browse
+                            <!-- <img src="url" height="150"> <br/> -->
+                            <input type="file" style="display: none;" multiple="">    
+                        </span>
+                    </label>
+                    <input type="text" class="form-control file_upload_form" readonly="">
+                </div>
+                <div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-block btn_upload">Upload logo</button>
+                    </div>
+                </div>
+            </div>
+            <div><i class="fa fa-info-circle info_icon" style="color: #00AADE;"></i>Upload only .png files</div>
+          </div>
+        </app-accordion>
+        <app-accordion>
+          <div accordion-el="title">
+            <i class="fa fa-list-alt"></i>
+            Terms & Policy Template
+          </div>
+          <div accordion-el="content">
+            <div class="alert alert-warning" role="alert">
+                <i class="fa fa-bullhorn megaphone_icon"></i>
+                <span class="font_weight">Show merchant terms and conditions </span>is enabled but is suppressed by <span class="font_weight">Show reseller terms and conditions.</span> Disable <span class="font_weight">Show merchant terms and conditions</span> to resolve this warning.
+            </div>
+            <div class="alert alert-info" role="alert">
+                <i class="fa fa-info-circle info_icon" style="color: #00AADE;"></i> 
+                <span class="font_weight">Reseller's terms and conditions are enabled! </span>Disable <span class="font_weight">Show reseller's terms and conditions </span>feature if you need to use terms and conditions. Also you can go to <span class="font_underline">test merchant reseller</span> if you need to change reseller's terms and conditions.
+            </div>
+          </div>
+        </app-accordion>
+      </app-accordion-group>
+    </div>
+  </div>
+</div>

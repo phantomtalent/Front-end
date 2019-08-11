@@ -1,0 +1,28 @@
+<h5 class="element-header">Copy Risk Filter</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+
+        <div class="form-group" [ngClass]="errorClasses('terminals')">
+          <label>Select terminals</label>
+          <app-multiselect [data]="terminals" formControlName="terminals"></app-multiselect>
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('terminals')">
+            {{controlValidateMessage('terminals')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Copy filter</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="valueExists" class="alert alert-danger">Filter with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<h5 class="element-header">New Company</h5>
+
+<div class="element-box">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <legend><span>Company Configurations</span></legend>
+        <div class="form-group" [ngClass]="errorClasses('name')">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="help-block form-text with-errors form-control-feedback" *ngIf="controlHasErrors('name')">
+            {{controlValidateMessage('name')}}
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" type="submit">Create Company</button>
+          <button class="btn btn-secondary" type="button" (click)="clear()">Clear</button>
+        </div>
+
+        <div class="error">
+          <div *ngIf="nameValueExists" class="alert alert-danger">Company with current name already exists!</div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

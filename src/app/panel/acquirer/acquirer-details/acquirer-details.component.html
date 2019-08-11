@@ -1,0 +1,16 @@
+<div class="element-actions">
+  <a class="btn btn-secondary mr-2 mb-2" [routerLink]="['/panel/acquirers/edit', acquirer.id]">
+    Edit Acquirer
+  </a>
+</div>
+
+<h5 class="element-header">Acquirer details</h5>
+
+<div class="element-box">
+  <div class="details-wrapper">
+    <p><b class="label">ID</b> {{acquirer.id}}</p>
+    <p><b class="label">Name</b> {{acquirer.name}}</p>
+    <p><b class="label">Country</b> {{acquirer.country_code}}</p>
+    <p><b class="label">Timezone</b> {{acquirer.timezone}}</p>
+  </div>
+</div>

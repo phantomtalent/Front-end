@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <div class="dataTables_wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-lightfont dataTable" role="grid">
+                    <thead>
+                        <tr role="row">
+                          <th scope="col">#</th>
+                          <th scope="col">Import date</th>
+                          <th scope="col">Merchant</th>
+                          <th scope="col">Reason Code</th>
+                          <th scope="col">Reason Description</th>
+                          <th scope="col">Acquirer reference</th>
+                          <th scope="col">Processed Transaction</th>
+                          <th scope="col">Payment transaction</th>
+                          <th scope="col">Card number</th>
+                          <th scope="col">Original Transaction Type</th>
+                          <th scope="col">Auth code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let retrievalrequest of retrievalrequests; let ind = index;" role="row" [ngClass]="{odd: ind % 2 === 0, even: ind % 2 !== 0}">
+                          <td scope="row">{{retrievalrequest.id}}</td>
+                          <td class='date' [routerLink]="['/panel/retrievalrequests', retrievalrequest.id]">{{retrievalrequest.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+                          <td class='date' [routerLink]="['/panel/merchants', retrievalrequest.merchant_id]">{{retrievalrequest.merchant_name}}</td>
+                          <td>{{retrievalrequest.rc_code}}</td>
+                          <td>{{retrievalrequest.rc_description}}</td>
+                          <td>{{retrievalrequest.acquirer_reference}}</td>
+                          <td>{{retrievalrequest.processed_transaction_id}}</td>
+                          <td>{{retrievalrequest.unique_tran_id}}</td>
+                          <td>{{retrievalrequest.card_number}}</td>
+                          <td>{{retrievalrequest.original_type}}</td>
+                          <td>{{retrievalrequest.auth_code}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>

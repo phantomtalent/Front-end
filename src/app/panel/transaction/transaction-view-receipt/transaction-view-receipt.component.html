@@ -1,0 +1,208 @@
+<div class="element-actions">
+  <div>
+    <button class="btn btn-secondary" (click)="print()" type="button"><i class="fa fa-print"></i> Print</button>
+    <button class="btn btn-secondary" type="button" (click)="download()"><i class="fa fa-download"></i> Download</button>
+  </div>
+</div>
+
+<h5 class="element-header">Payment Transaction Receipt</h5>
+
+<div class="content-i">
+  <div class="content-box d-flex justify-content-center">
+    <div #container id = "container" class="element-wrapper">
+      <div class="invoice-w">
+        <div class="infos">
+          <div class="info-1">
+            <div class="invoice-logo-w">
+              <img alt="" src="../../../../assets/images/logo2.png">
+            </div>
+            <div class="company-name">
+              Paper Inc
+            </div>
+            <div class="company-address">
+              47 Countrylane Ave, <br/>Los Angeles, CA 97446 <br/>United States
+            </div>
+            <div class="company-extra">
+              tel. 858.745.5577
+            </div>
+          </div>
+          <div class="info-2">
+            <div class="company-name">
+              Client Inc
+            </div>
+            <div class="company-address">
+              210 Benson Lane, Suite 430<br/>Queens, NY 11243<br/>United States
+            </div>
+          </div>
+        </div>
+        <div class="invoice-heading">
+          <h3>
+            Payment Transaction Receipt
+          </h3>
+          <div class="invoice-date">
+            The payment transaction is with status {{transaction?.status}}
+          </div>
+        </div>
+        <div>
+          <div>
+            <table class="table">
+              <tbody>
+              <tr>
+                <th colspan="2">
+                  Payment Transaction Details
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  Transaction ID
+                </td>
+                <td>
+                  {{transaction?.unique_id}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Purchase date
+                </td>
+                <td>
+                  {{transaction?.created_at | date: 'yyyy-MM-dd HH:mm'}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Purchased from
+                </td>
+                <td>
+                  {{merchant?.name}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Amount
+                </td>
+                <td>
+                  {{ transaction?.amount | currency:transaction?.currency:'' }} {{ transaction?.currency }}
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2">
+                  Customer Details
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  Name
+                </td>
+                <td>
+                  First Last
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Address
+                </td>
+                <td>
+                  N. Vaptsarov
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  City
+                </td>
+                <td>
+                  Sofia
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  State
+                </td>
+                <td>
+                  CA
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Zip Code
+                </td>
+                <td>
+                  10445
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Country
+                </td>
+                <td>
+                  Bulgaria
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Phone
+                </td>
+                <td>
+                  +198798
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Email
+                </td>
+                <td>
+                  ivan@test.com
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2">
+                  Payment Details
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  Payment Method
+                </td>
+                <td>
+                  Credit Card
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Card Type
+                </td>
+                <td>
+                  visa
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Card Holder
+                </td>
+                <td>
+                  Test Testov
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Card Number
+                </td>
+                <td>
+                  490116...4345
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Expiry Date
+                </td>
+                <td>
+                  xx/xxxx
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

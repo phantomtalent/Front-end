@@ -1,0 +1,8 @@
+{
+  "/api_admin/*": {
+    "target": "http://185.185.126.15:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

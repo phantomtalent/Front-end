@@ -1,0 +1,44 @@
+<h5 class="element-header">Virtual Terminal</h5>
+
+<div class="element-box">
+  <div class="search-wrapper">
+    <app-accordion>
+      <div accordion-el="title">
+        <i class="fa fa-search"></i>
+        <i class="os-icon os-icon-ui-43-e"></i>
+        Search
+      </div>
+      <div accordion-el="content">
+        <form [formGroup]="formGroup" class="container search-container">
+
+          <div class="row">
+            <div class="col-sm-2 search-titles">Transaction Type</div>
+            <div class="col-sm-4">
+              <input type="text" class="form-control transaction-type" formControlName="transactionType"
+                placeholder="Transaction Type" />
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </app-accordion>
+  </div>
+</div>
+
+<div class="element-box">
+  <div class="terminal-item-container">
+    <ng-container *ngFor="let category of categories">
+      <div class="terminal-item terminal-category">
+        {{category}}
+      </div>
+
+      <ng-container *ngFor="let item of data">
+        <div class="terminal-item" *ngIf="item.category == category">
+          <a [routerLink]="[item.type.toLowerCase()]">{{item.type}}</a>
+        </div>
+      </ng-container>
+
+      <div class="terminal-item category-filler"></div>
+    </ng-container>
+  </div>
+</div>

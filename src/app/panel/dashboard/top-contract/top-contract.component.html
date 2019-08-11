@@ -1,0 +1,127 @@
+<div class="element-wrapper">
+
+  <h5 class="element-header">Top Contracts</h5>
+
+  <div class="element-box">
+    <div class="search-wrapper">
+      <app-accordion>
+        <div accordion-el="title">
+          <i class="fa fa-search"></i>
+          Search
+        </div>
+        <div accordion-el="content">
+          <form [formGroup]="formGroup" (ngSubmit)="search()" class="container graph-form" *ngIf="formGroup">
+
+            <div class="row">
+              <div class="col-sm-2 content-title">
+                Select Month
+              </div>
+              <div class="col-sm-2">
+                <select formControlName="selectedYear" class="form-control" placeholder="Year"
+                        (change)="onYearChange($event.target.value)">
+                  <option *ngFor="let year of years" [value]="year">
+                    {{year}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <select formControlName="selectedMonth" class="form-control" placeholder="Month"
+                        (change)="onMonthChange($event.target.value)">
+                  <option *ngFor="let month of months" [value]="month">
+                    {{month}}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-sm-2">
+                <button class="btn btn-primary btn-block" (click)="thisMonth()" type="button">This Month</button>
+              </div>
+
+              <div class="col-sm-2">
+                <button class="btn btn-primary btn-block" (click)="lastMonth()" type="button">Last Month</button>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-sm-2 content-title">
+                Select Week
+              </div>
+              <div class="col-sm-4">
+                <select formControlName="selectedWeek" (change)="onWeekChange($event.target.value)" class="form-control"
+                        placeholder="Week">
+                  <option [value]="null">--Week--</option>
+                  <option *ngFor="let week of weeks" [value]="week.Start.valueOf()">
+                    {{week.Text}}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-sm-2">
+                <button class="btn btn-primary btn-block" (click)="thisWeek()" type="button">This Week</button>
+              </div>
+
+              <div class="col-sm-2">
+                <button class="btn btn-primary btn-block" (click)="lastWeek()" type="button">Last Week</button>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-10">
+                <span class="radio-subtitle">Week Start</span>
+
+                <div class="btn-group row">
+                  <label class="radio">
+                    <input type="radio" formControlName="weekStart" name="weekStart" value="m"  (change)="onWeekStartChange($event.target.value)"  />
+                    <span>Monday</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" formControlName="weekStart" name="weekStart" value="s" (change)="onWeekStartChange($event.target.value)" />
+                    <span>Sunday</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-2 content-title">
+                Custom Date Range
+              </div>
+
+              <div class="col-sm-2">
+                <app-date-picker placeholder="Date from" formControlName="start"></app-date-picker>
+              </div>
+
+              <div class="col-sm-2">
+                <app-date-picker placeholder="Date to" formControlName="end"></app-date-picker>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-success btn-block" type="submit">Chart</button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-default btn-block" type="button" (click)="clear()">Reset</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </app-accordion>
+    </div>
+    <div class="element-box chart-element-box">
+      <div class="dates-range" *ngIf="chartStartDate != null && chartEndDate != null">
+        <span>Range: </span>{{chartStartDate | date: 'yyyy-MM-dd'}} -
+        {{chartStartDate | date: 'yyyy-MM-dd'}}
+      </div>
+      <chart type="line" [data]="lineData" [options]="options"></chart>
+    </div>
+  </div>
+</div>

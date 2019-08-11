@@ -1,0 +1,96 @@
+.row {
+  margin-bottom: 15px;
+}
+
+.title {
+  text-align: right;
+  margin-right: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0px;
+}
+
+.custom-checkbox {
+  padding: 0;
+}
+
+.custom-checkbox > label {
+  padding-left: 35px;
+}
+
+.expiration-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expiration-date > select {
+  width: 48%;
+}
+
+.alert-title {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  margin-bottom: 10px;
+}
+.after-submission > div > .row {
+  margin: 0;
+  margin-top: -1px;
+}
+.after-submission > div > .row:nth-child(even) {
+  background-color: #f5f5f5;
+}
+.after-submission > div > .row > div {
+  border: solid 1px #e5e5e5;
+  margin-right: -1px;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.sbm-title {
+  font-weight: 700;
+}
+
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.row-header > span {
+  font-weight: 700;
+}
+
+.form-control-append {
+  border-radius: 0;
+  height: 35px !important;
+  width: 70px !important;
+  margin-left: 2px;
+}
+
+.decimal-p > input {
+  width: 15px !important;
+  font-weight: 700;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.amount {
+  text-align: right;
+}
+
+label.radio ~ label.radio {
+  padding-left: 16px;
+}
+
+label.radio > input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.value-type{
+  margin-left:0px;
+}
