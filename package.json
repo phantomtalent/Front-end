@@ -43,7 +43,7 @@
     "ngx-bootstrap": "^3.3.0",
     "ngx-text-highlight": "^0.1.6",
     "ngx-webstorage": "^2.0.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "print-js": "^1.0.61",
     "rxjs": "^6.4.0",
     "select2": "^4.0.6-rc.1",
